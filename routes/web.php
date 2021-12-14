@@ -15,6 +15,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     });
 
     // Vendor
+    Route::prefix('vendor')->name('vendor.')->group(function () {
+        Route::view('/dashboard', 'user.vendor.dashboard')->name('dashboard');
+});
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
