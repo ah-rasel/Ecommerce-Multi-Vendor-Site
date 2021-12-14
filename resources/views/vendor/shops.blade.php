@@ -22,7 +22,7 @@
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-5 xl:gap-6">
             @foreach ($items=[0,1,2,3,4,5] as $item)                
-            <a href="{{ route('single.shop') }}" class="flex items-center px-5 lg:px-6 rounded-md shadow-vendorCard cursor-pointer relative bg-white dark:bg-gray-800 transition-all hover:shadow-md py-5 lg:py-6" :class="{'pt-10 lg:pt-12 pb-9 lg:pb-11 flex-col text-center':d_style==2}">
+            <a class="flex items-center px-5 lg:px-6 rounded-md shadow-vendorCard cursor-pointer relative bg-white dark:bg-gray-800 transition-all hover:shadow-md py-5 lg:py-6" :class="{'pt-10 lg:pt-12 pb-9 lg:pb-11 flex-col text-center':d_style==2}" href="single_shop_products.html">
                 <span class="text-[10px] xl:text-xs font-semibold text-white uppercase px-2 py-1 xl:py-[5px] rounded bg-[#2B78C6] absolute top-2 right-2">New</span>
                 <div class="border border-gray-100 relative flex flex-shrink-0 items-center justify-center bg-gray-300 rounded-full overflow-hidden w-16 h-16" :class="{'w-24 h-24 lg:w-24 lg:h-24':d_style==2}">
                     <span class="box-border block overflow-hidden absolute inset-0">
