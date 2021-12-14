@@ -35,14 +35,26 @@
                             </svg>
                             <p>My Account</p>
                         </div>
-                        <div class="absolute z-10 px-6 py-2 pr-16 font-semibold text-gray-800 transition duration-700 transform translate-y-5 bg-white shadow opacity-0 group-hover:opacity-100 group-hover:translate-y-0 dark:bg-gray-700 dark:text-gray-200 top-8 -left-10">
+                        <div class="absolute z-10 px-6 py-2 pr-16 text-gray-800 transition duration-700 transform translate-y-5 bg-white shadow opacity-0 group-hover:opacity-100 group-hover:translate-y-0 dark:bg-gray-700 dark:text-gray-200 top-8 -left-10">
                             <ul class="space-y-2">
+                                @guest
                                 <li>
-                                    <a href="/login.html">Login</a>
+                                    <a href="{{ route('login') }}">Login</a>
                                 </li>
                                 <li>
-                                    <a href="/register.html">Register</a>
+                                    <a href="{{ route('register') }}">Register</a>
                                 </li>
+                                @else
+                                <li>
+                                    <a href="#">Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#">Orders</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-red-600">Logout</a>
+                                </li>
+                                @endguest
                             </ul>
                         </div>
                     </div>
