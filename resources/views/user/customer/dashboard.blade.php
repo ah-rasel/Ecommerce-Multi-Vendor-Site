@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('contents')
 <div class="">
-    <div class="flex justify-center p-6 md:p-10 2xl:p-8 relative bg-no-repeat bg-center bg-cover" style="background-image: url('images/slider/1.jpg');">
+    <div class="flex justify-center p-6 md:p-10 2xl:p-8 relative bg-no-repeat bg-center bg-cover" style="background-image: url('../images/slider/1.jpg');">
         <div class="absolute top-0 start-0 bg-black w-full h-full opacity-50 transition-opacity duration-500 group-hover:opacity-80">
         </div>
         <div class="w-full flex items-center justify-center relative z-10 py-10 md:py-14 lg:py-20 xl:py-24 2xl:py-32">
@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="max-w-screen-2xl md:px-8 px-3 md:py-8 mx-auto ">
-        <div x-data="{tab:4}" class="py-16 lg:py-20 px-0 xl:max-w-screen-xl mx-auto flex md:flex-row w-full">
+        <div x-data="{tab:1}" class="py-16 lg:py-20 px-0 xl:max-w-screen-xl mx-auto flex md:flex-row w-full">
             <div class="flex flex-col md:flex-row w-full">
                 <nav class="flex flex-col md:w-2/6 2xl:w-4/12 md:pr-8 lg:pr-12 xl:pr-16 2xl:pr-20 pb-2 md:pb-0">
                     <a @click.prevent="tab=1" :class="{'bg-gray-200 dark:bg-gray-800 font-semibold':tab==1}" class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base  py-3.5 px-4 lg:px-5 rounded mb-2" href="/my-account">

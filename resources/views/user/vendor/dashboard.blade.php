@@ -2,7 +2,7 @@
 @section('contents')
 <div class="bg-white dark:bg-gray-600">
     <div class="max-w-screen-2xl md:px-8 px-3 md:py-8 mx-auto">
-        <div x-data="{tab:5}" class="py-8 lg:py-10 px-0 xl:max-w-screen-xl mx-auto flex md:flex-row w-full">
+        <div x-data="{tab:1}" class="py-8 lg:py-10 px-0 xl:max-w-screen-xl mx-auto flex md:flex-row w-full">
             <div class="flex flex-col md:flex-row w-full">
                 <nav class="flex flex-col md:w-2/6 2xl:w-4/12 pb-2 md:pb-0 bg-gray-100 dark:bg-gray-800 rounded md:mr-16 pt-6">
                     <div class="mx-auto w-full">
