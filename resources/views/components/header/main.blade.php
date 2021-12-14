@@ -46,6 +46,9 @@
                                 </li>
                                 @else
                                 <li>
+                                    <a href="{{ route('customer.dashboard') }}">Dashboard</a>
+                                </li>
+                                <li>
                                     <a href="#">Profile</a>
                                 </li>
                                 <li>

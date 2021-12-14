@@ -10,8 +10,8 @@ Route::view('/shops', 'user.shops')->name('shops');
 Route::view('/shop/shop-name', 'vendor.single-shop')->name('single.shop');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Customer
-    Route::prefix('customer')->group(function () {
-        Route::view('/profile','profile')->name('profile');
+    Route::prefix('customer')->name('customer.')->group(function () {
+            Route::view('/dashboard', 'user.customer.dashboard')->name('dashboard');
     });
 
     // Vendor
