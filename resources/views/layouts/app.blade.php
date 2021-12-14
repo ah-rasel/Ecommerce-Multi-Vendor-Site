@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
     <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="/js/custom.js"></script>
 </head>
 
 <body :class="{ 'dark': dark }" x-data="data()">
@@ -494,8 +493,10 @@
 
         </div>
     </div>
+    <script src="{{asset('js/custom.js')}}"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="/js/slider.js"></script>
+    @livewireScripts
 </body>
 
 </html>
