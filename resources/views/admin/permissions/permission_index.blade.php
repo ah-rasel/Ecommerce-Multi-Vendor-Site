@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 @section('admin_contents')
+<x-global.title>
+    Permissions
+</x-global.title>
 <x-table.table_index>
     <x-slot name="head">
         <x-table.heading> Permission </x-table.heading>

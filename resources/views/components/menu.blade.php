@@ -57,7 +57,7 @@
                     bg-white dark:bg-gray-800 border-r-4 border-blue-400
                     @endif
                     ">
-                        <a class="w-full" href="#">Roles</a>
+                        <a class="w-full" href="{{ route('admin.role.index') }}">Roles</a>
                     </li>
                     <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
                     @if (request()->is('admin/permission') || request()->is('admin/permission/*'))

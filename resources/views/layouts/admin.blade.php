@@ -71,7 +71,9 @@
             <main class="h-full overflow-y-auto">
                 <!-- Main Container -->
                 <div class="container grid py-2 px-2 mx-auto text-gray-700 dark:text-gray-200">
-                    @yield('admin_contents')
+                    <div class="overflow-hidden">
+                        @yield('admin_contents')
+                    </div>
                 </div>
             </main>
         </div>

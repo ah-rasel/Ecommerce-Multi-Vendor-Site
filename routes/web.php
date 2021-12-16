@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PermissionsController;
+use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Admin
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('role', RolesController::class);
         Route::resource('permission', PermissionsController::class);
     });
 
