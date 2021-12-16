@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Gate;
 
 class AuthPermissions
 {
+    // To declare gate from database
+    // web middlewire [kernel.php]
+    
     public function handle(Request $request, Closure $next)
     {
         $user = auth()->user();

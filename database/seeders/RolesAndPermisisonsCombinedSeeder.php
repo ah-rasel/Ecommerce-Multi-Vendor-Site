@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Admin\Permission;
+use App\Models\Admin\Role;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class PermissionSeeder extends Seeder
+class RolesAndPermisisonsCombinedSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +15,33 @@ class PermissionSeeder extends Seeder
      * @return void
      */
     public function run()
+    {
+        $this->RoleSeeding();
+        $this->PermissionSeeding();
+        $this->UserRole();
+        $this->PermissionRoleSeeding();
+    }
+    public function PermissionRoleSeeding()
+    {
+        $admin_permissions = Permission::all();
+        $user_permissions = $admin_permissions->filter(function ($permission) {
+            return substr($permission->title, 0, 5) != 'user_'
+                && substr($permission->title, 0, 5) != 'role_'
+                && substr($permission->title, 0, 11) != 'permission_'
+                && substr($permission->title, 0, 10) != 'dashboard_'
+                && substr($permission->title, 0, 7) != 'vendor_';
+        });
+        $vendor_permissions = $admin_permissions->filter(function ($permission) {
+            return substr($permission->title, 0, 7) === 'vendor_'
+                && substr($permission->title, 0, 10) != 'dashboard_';
+        });
+
+        Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id'));
+        Role::findOrFail(2)->permissions()->sync($vendor_permissions);
+        Role::findOrFail(3)->permissions()->sync($user_permissions);
+    }
+    
+    public function PermissionSeeding()
     {
         $permissions = [
             [
@@ -94,5 +123,42 @@ class PermissionSeeder extends Seeder
         ];
 
         Permission::insert($permissions);
+    }
+    public function RoleSeeding()
+    {
+        $roles = [
+            [
+                'id'    => 1,
+                'title' => 'Admin',
+            ],
+            [
+                'id'    => 2,
+                'title' => 'Vendor',
+            ],
+            [
+                'id'    => 3,
+                'title' => 'Customer',
+            ],
+        ];
+
+        Role::insert($roles);
+    }
+    public function UserRole()
+    {
+        $user_roles = [
+            [
+                'user_id' => 1,
+                'role_id' => 1,
+            ],
+            [
+                'user_id' => 2,
+                'role_id' => 2,
+            ],
+            [
+                'user_id' => 3,
+                'role_id' => 3,
+            ],
+        ];
+        DB::table('role_user')->insert($user_roles);
     }
 }
