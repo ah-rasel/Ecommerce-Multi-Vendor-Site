@@ -19,11 +19,25 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'name'           => 'Md Rasel',
-                'email'          => 'admin@admin.com',
+                'email'          => 'admin@gmail.com',
                 'email_verified_at' => now(),
                 'password'       => Hash::make('password'),
                 'remember_token' => Str::random(10),
-            ]
+            ],
+            [
+                'name'           => 'Vendor',
+                'email'          => 'vendor@gmail.com',
+                'email_verified_at' => now(),
+                'password'       => Hash::make('password'),
+                'remember_token' => Str::random(10),
+            ],
+            [
+                'name'           => 'Customer',
+                'email'          => 'customer@gmail.com',
+                'email_verified_at' => now(),
+                'password'       => Hash::make('password'),
+                'remember_token' => Str::random(10),
+            ],
         ];
         DB::table('users')->insert($users);
     }
