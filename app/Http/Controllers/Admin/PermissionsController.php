@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Permission;
 use Illuminate\Http\Request;
 
 class PermissionsController extends Controller
@@ -14,7 +15,8 @@ class PermissionsController extends Controller
      */
     public function index()
     {
-       return view('admin.permissions.permission_index');
+        $permissions = Permission::all();
+       return view('admin.permissions.permission_index',compact('permissions'));
     }
 
     /**

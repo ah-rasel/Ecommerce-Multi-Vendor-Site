@@ -6,9 +6,11 @@
         <x-table.heading> Action </x-table.heading>
     </x-slot>
     <x-slot name="body">
+        @foreach ($permissions as $permission)
         <x-table.row>
             <x-table.cell>
-                <x-global.input.checkbox label="hey" name="" value="" id="1" ></x-global.checkbox>
+                <x-global.input.checkbox :label="$permission->title" name="permissions[]" :value="$permission->id" :id="$permission->id">
+                    </x-global.checkbox>
             </x-table.cell>
             <x-table.cell>
                 <div class="flex space-x-2">
@@ -17,6 +19,7 @@
                 </div>
             </x-table.cell>
         </x-table.row>
+        @endforeach
     </x-slot>
 </x-table.table_index>
 @endsection
