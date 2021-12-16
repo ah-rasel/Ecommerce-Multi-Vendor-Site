@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,18 +11,21 @@ Route::get('/', function () {
 Route::view('/shops', 'user.shops')->name('shops');
 Route::view('/shop/shop-name', 'vendor.single-shop')->name('single.shop');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+   
+    // Admin
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('permission', PermissionsController::class);
+    });
+
     // Customer
     Route::prefix('customer')->name('customer.')->group(function () {
-            Route::view('/dashboard', 'user.customer.dashboard')->name('dashboard');
+        Route::view('/dashboard', 'user.customer.dashboard')->name('dashboard');
     });
+
 
     // Vendor
     Route::prefix('vendor')->name('vendor.')->group(function () {
         Route::view('/dashboard', 'user.vendor.dashboard')->name('dashboard');
+    });
 });
-});
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');

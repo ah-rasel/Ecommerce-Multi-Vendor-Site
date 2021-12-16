@@ -14,7 +14,7 @@ class PermissionsController extends Controller
      */
     public function index()
     {
-        //
+       return view('admin.permissions.permission_index');
     }
 
     /**
