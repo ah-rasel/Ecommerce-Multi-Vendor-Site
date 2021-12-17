@@ -16,8 +16,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('dashboard_access'), redirect('/')->with('message','No access'));
-        return view('admin.dashboard');
+       return view('admin.dashboard');
     }
 
     /**

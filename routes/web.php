@@ -14,13 +14,16 @@ Route::view('/shops', 'user.shops')->name('shops');
 Route::view('/shop/shop-name', 'vendor.single-shop')->name('single.shop');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-    // Admin
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::prefix('admin')->name('admin.')->group(function () {
-        Route::resource('users', UsersController::class);
-        Route::resource('role', RolesController::class);
-        Route::resource('permission', PermissionsController::class)->only(['index']);
+    // Admin - Protected with middleware
+    Route::middleware(['admin_area'])->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::prefix('admin')->name('admin.')->group(function () {
+            Route::resource('users', UsersController::class);
+            Route::resource('role', RolesController::class);
+            Route::resource('permission', PermissionsController::class)->only(['index']);
+        });
     });
+
 
     // Customer
     Route::prefix('customer')->name('customer.')->group(function () {
