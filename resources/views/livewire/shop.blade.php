@@ -206,7 +206,7 @@
                         <span class="ps-2.5">Filters</span>
                     </button>
                     <div class="flex items-center justify-end">
-                        <div class="flex-shrink-0 text-xs md:text-sm leading-4 pr-4 md:mr-6 ps-2 hidden lg:block">9,608 items
+                        <div class="flex-shrink-0 text-xs md:text-sm leading-4 pr-4 md:mr-6 ps-2 hidden lg:block">{{ $total_products }} items
                         </div>
                         <div class="relative mx-2 lg:ms-0 z-10 min-w-[180px]">
                             <button class="border border-gray-300  text-[13px] md:text-sm font-semibold relative w-full py-2 px-3 pr-10 text-left bg-white rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm cursor-pointer" type="button" aria-haspopup="true">
@@ -222,7 +222,7 @@
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8 ">
                     @foreach ($products as $product)
-                    <x-global.product-card :name="$product->name" :description="$product->description" :current-price="$product->price" :regular-price="$product->price"></x-global.product-card>
+                    <x-global.product-card href="{{ route('product.show',$product->slug) }}" :name="$product->name" :description="$product->description" :current-price="$product->price" :regular-price="$product->price"></x-global.product-card>
                     @endforeach
                 </div>
                 @if ($load_more)

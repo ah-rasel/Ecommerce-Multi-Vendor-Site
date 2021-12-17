@@ -4,6 +4,7 @@
 /public/css/app.css
 /public/js/app.js
 /public/images
+/resources/views/temp.blade.php
 /storage/*.key
 /vendor
 .env

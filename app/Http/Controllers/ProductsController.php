@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -43,9 +44,17 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $product = Product::with('category')->where('slug', $slug)->firstorfail();
+        $products = Product::where([
+            ['id', '!=', $product->id],
+            ['category_id', $product->category_id],
+        ])
+            ->take(10)
+            ->orderBy('id', 'asc')
+            ->get();
+        return view('product_single_show', compact('product', 'products'));
     }
 
     /**

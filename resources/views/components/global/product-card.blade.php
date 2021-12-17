@@ -4,7 +4,7 @@
 'currentPrice'=>false,
 'regularPrice'=>false,
 ])
-<a href="/">
+<a {{ $attributes }}>
     <div class="group box-border overflow-hidden flex rounded-md cursor-pointer pr-0 pb-2 lg:pb-3 flex-col items-start bg-white dark:bg-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-md" role="button" title="Nike Black">
         <div class="flex mb-3 md:mb-3.5">
             <span class="box-border relative inline-block max-w-full overflow-hidden bg-none">

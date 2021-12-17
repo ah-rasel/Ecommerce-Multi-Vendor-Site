@@ -11,10 +11,16 @@ class Shop extends Component
     use WithPagination;
     public $product_to_display = 12;
     public $load_more = true;
+    public $total_products = true;
+
+    public function mount()
+    {
+        $this->total_products = Product::count();
+    }
     public function loadMore()
     {
-        $this->product_to_display = $this->product_to_display+12;
-        ($this->product_to_display>Product::count())?$this->load_more = false:'';
+        $this->product_to_display = $this->product_to_display + 12;
+        ($this->product_to_display > $this->total_products) ? $this->load_more = false : '';
     }
     public function render()
     {

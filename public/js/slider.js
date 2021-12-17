@@ -3,7 +3,7 @@ var swiper1 = new Swiper(".home-slider", {
     autoplay: {
         delay: 3000,
     },
-    speed:1000,
+    speed: 1000,
     pagination: {
         el: ".swiper-pagination",
         type: "bullets",
@@ -39,22 +39,22 @@ var flashSale = new Swiper(".flash-sale-slider", {
     breakpoints: {
         // when window width is >= 320px
         320: {
-          slidesPerView: 1,
+            slidesPerView: 1,
         },
         // when window width is >= 480px
         480: {
-          slidesPerView: 2,
+            slidesPerView: 2,
         },
         640: {
-          slidesPerView: 3,
+            slidesPerView: 3,
         },
         1024: {
-          slidesPerView: 4,
+            slidesPerView: 4,
         },
-        1280:{
-            slidesPerView:1,
+        1280: {
+            slidesPerView: 1,
         }
-      },
+    },
     spaceBetween: 30,
     autoplay: {
         delay: 7000,
@@ -69,15 +69,15 @@ var flashSale = new Swiper(".featured-slide", {
     loop: true,
     speed: 500,
     slidesPerView: 1,
-    loop:true,
+    loop: true,
     breakpoints: {
         320: {
-          slidesPerView: 1,
+            slidesPerView: 1,
         },
         480: {
-          slidesPerView: 2,
+            slidesPerView: 2,
         },
-      },
+    },
     spaceBetween: 30,
     autoplay: {
         delay: 10000,
@@ -85,5 +85,30 @@ var flashSale = new Swiper(".featured-slide", {
     navigation: {
         nextEl: ".featured-next",
         prevEl: ".featured-prev",
+    },
+});
+
+var product_slider = new Swiper(".gallary-slide", {
+    slidesPerView: 8,
+    spaceBetween: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+        320: {
+            slidesPerView: 4,
+        },
+        480: {
+            slidesPerView: 5,
+        },
+        1280: {
+            spaceBetween: 4,
+            slidesPerView: 6,
+        }
+    },
+});
+var product_slider2 = new Swiper(".product-slide", {
+    spaceBetween: 10,
+    thumbs: {
+        swiper: product_slider,
     },
 });
