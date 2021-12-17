@@ -4,12 +4,13 @@ use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UsersController;
+use App\Http\Livewire\Shop as ShopPage;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('user.index');
-});
+Route::view('/', 'user.index');
+Route::view('/shop', 'user.shop')->name('shop');
+
 Route::view('/shops', 'user.shops')->name('shops');
 Route::view('/shop/shop-name', 'vendor.single-shop')->name('single.shop');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
