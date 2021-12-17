@@ -21,7 +21,7 @@
                 </div>
                 <div class="text-gray-500 dark:text-gray-400">{{ $user->email }}</div>
                 <div class="">
-                    Joined: <span>December 17,2021</span>
+                    Joined: <span>{{ $user->date_to_display ?? '' }}</span>
                 </div>
             </div>
             <div class="text-center mt-6 flex justify-center items-center space-x-3">

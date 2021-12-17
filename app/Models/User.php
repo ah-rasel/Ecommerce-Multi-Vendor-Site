@@ -69,4 +69,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+    public function getDateToDisplayAttribute()
+    {
+        return $this->created_at?->format('M d \a\t g:i A');
+    }
 }
