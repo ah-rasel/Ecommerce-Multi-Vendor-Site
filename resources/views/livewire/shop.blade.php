@@ -221,13 +221,15 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8 ">
-                    @foreach ($products=[0,1,2,3,4,5,6,7,8,9,10,11] as $product)
-                    <x-global.product-card></x-global.product-card>
+                    @foreach ($products as $product)
+                    <x-global.product-card :name="$product->name" :description="$product->description" :current-price="$product->price" :regular-price="$product->price"></x-global.product-card>
                     @endforeach
                 </div>
+                @if ($load_more)
                 <div class="text-center pt-8 xl:pt-14">
-                    <button class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none h-11 md:h-12 px-5 bg-heading text-white transform-none normal-case hover:text-white hover:bg-gray-600 bg-gray-700">Load More</button>
+                    <button wire:click="loadMore" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none h-11 md:h-12 px-5 bg-heading text-white transform-none normal-case hover:text-white hover:bg-gray-600 bg-gray-700">Load More</button>
                 </div>
+                @endif
             </div>
         </div>
     </div>

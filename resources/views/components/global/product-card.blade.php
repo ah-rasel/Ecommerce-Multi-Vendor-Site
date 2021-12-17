@@ -1,3 +1,9 @@
+@props([
+'name'=>false,
+'description'=>false,
+'currentPrice'=>false,
+'regularPrice'=>false,
+])
 <a href="/">
     <div class="group box-border overflow-hidden flex rounded-md cursor-pointer pr-0 pb-2 lg:pb-3 flex-col items-start bg-white dark:bg-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-md" role="button" title="Nike Black">
         <div class="flex mb-3 md:mb-3.5">
@@ -10,15 +16,14 @@
         </div>
         <div class="w-full overflow-hidden md:px-2.5 xl:px-4">
             <h2 class="mb-1 text-sm font-semibold truncate text-heading md:text-base">
-                Nike Black</h2>
+                {{ $name }}
+            </h2>
             <p class="text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate">
-                Casual wear (casual attire or clothing) may be a Western code that’s
-                relaxed, occasional, spontaneous and fitted to everyday use. Casual
-                wear
-                became popular within the Western world</p>
+                {{ $description }}
+            </p>
             <div class="text-heading font-semibold text-sm sm:text-base mt-1.5 space-x-2 lg:text-lg lg:mt-2.5">
-                <span class="inline-block">$11.00</span>
-                <del class="font-normal text-gray-800 sm:text-base">$15.00</del>
+                <span class="inline-block">${{ $currentPrice }}</span>
+                <del class="font-normal text-gray-800 sm:text-base">${{ $regularPrice }}</del>
             </div>
         </div>
     </div>
