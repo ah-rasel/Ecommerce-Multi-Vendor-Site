@@ -1,0 +1,1 @@
+<label {{ $attributes }} class="cursor-pointer">{{ $slot }}</label>

@@ -55,7 +55,12 @@
                                     <a href="#">Orders</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-red-600">Logout</a>
+                                    <a href="#" class="text-red-600" 
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                 </li>
                                 @endguest
                             </ul>

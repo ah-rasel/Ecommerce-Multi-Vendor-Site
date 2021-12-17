@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admin\Role;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,6 +28,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'email_verified_at',
     ];
 
     /**
@@ -58,4 +60,17 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getIsAdminAttribute()
+    {
+        return $this->roles()->where('id', 1)->exists();
+    }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+    public function getDateToDisplayAttribute()
+    {
+        return $this->created_at?->format('M d \a\t g:i A');
+    }
 }

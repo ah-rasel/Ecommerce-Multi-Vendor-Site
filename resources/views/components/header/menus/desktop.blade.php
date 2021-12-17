@@ -45,7 +45,7 @@
                 </a>
             </li>
             <li class="group">
-                <a href="/shop.html" class="relative">Store
+                <a href="{{ route('shop') }}" class="relative">Store
                     <div class="absolute w-full h-1 transition duration-500 bg-blue-500 rounded opacity-0 group-hover:opacity-100 -translate-x-9 group-hover:translate-x-0 -bottom-7">
                     </div>
                 </a>
