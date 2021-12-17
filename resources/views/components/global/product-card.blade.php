@@ -1,8 +1,5 @@
 @props([
-'name'=>false,
-'description'=>false,
-'currentPrice'=>false,
-'regularPrice'=>false,
+'product'=>false,
 ])
 <a {{ $attributes }}>
     <div class="group box-border overflow-hidden flex rounded-md cursor-pointer pr-0 pb-2 lg:pb-3 flex-col items-start bg-white dark:bg-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-md" role="button" title="Nike Black">
@@ -16,14 +13,14 @@
         </div>
         <div class="w-full overflow-hidden md:px-2.5 xl:px-4">
             <h2 class="mb-1 text-sm font-semibold truncate text-heading md:text-base">
-                {{ $name }}
+                {{ $product->name }}
             </h2>
             <p class="text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate">
-                {{ $description }}
+                {{ $product->description }}
             </p>
             <div class="text-heading font-semibold text-sm sm:text-base mt-1.5 space-x-2 lg:text-lg lg:mt-2.5">
-                <span class="inline-block">${{ $currentPrice }}</span>
-                <del class="font-normal text-gray-800 sm:text-base">${{ $regularPrice }}</del>
+                <span class="inline-block">${{ $product->price }}</span>
+                <del class="font-normal text-gray-800 sm:text-base">${{ $product->price }}</del>
             </div>
         </div>
     </div>

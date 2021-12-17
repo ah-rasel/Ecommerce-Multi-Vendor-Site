@@ -1,3 +1,6 @@
+@props([
+'products'
+])
 <div class="flex flex-col px-4 pt-6 pb-6 bg-white border border-opacity-0 rounded-lg shadow-sm dark:border-opacity-100 dark:border-gray-500 sm:pt-7 lg:pt-8 xl:pt-7 2xl:pt-9 md:px-5 lg:px-7 lg:pb-7 false col-span-full xl:col-span-2 row-span-full xl:row-auto dark:bg-gray-800">
     <div class="flex items-center justify-between mb-4 -mt-2 md:mb-5 lg:mb-6 xl:mb-5 2xl:mb-6 3xl:mb-8">
         <h3 class="text-lg font-bold text-heading md:text-xl lg:text-2xl 2xl:text-3xl xl:leading-10">
@@ -7,10 +10,7 @@
         <div class="relative">
             <div class="swiper flash-sale-slider">
                 <div class="swiper-wrapper">
-                    @php
-                    $items=[0,1,2];
-                    @endphp
-                    @foreach ($items as $item)
+                    @foreach ($products as $product)
                     <!-- Slide -->
                     <div class="swiper-slide">
                         <div class="flex flex-col justify-between h-full">
@@ -26,12 +26,14 @@
                                     </div>
                                     <div class="w-full overflow-hidden">
                                         <h2 class="font-semibold truncate mb-1 md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg">
-                                            Adidas Shoes Black</h2>
+                                            {{ $product->name }}
+                                        </h2>
                                         <p class="text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate">
-                                            Men Black top sleeveless gown</p>
+                                            {{ $product->description }}
+                                        </p>
                                         <div class="text-heading font-semibold text-sm mt-1.5 space-x-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3">
-                                            <span class="inline-block">$45.00</span>
-                                            <del class="font-normal text-gray-800 sm:text-base dark:text-gray-400">$99.99</del>
+                                            <span class="inline-block">${{ $product->price }}</span>
+                                            <del class="font-normal text-gray-800 sm:text-base dark:text-gray-400">${{ $product->price }}</del>
                                         </div>
                                     </div>
                                 </div>

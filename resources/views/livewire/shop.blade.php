@@ -222,7 +222,7 @@
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8 ">
                     @foreach ($products as $product)
-                    <x-global.product-card href="{{ route('product.show',$product->slug) }}" :name="$product->name" :description="$product->description" :current-price="$product->price" :regular-price="$product->price"></x-global.product-card>
+                    <x-global.product-card href="{{ route('product.show',$product->slug) }}" :product="$product"></x-global.product-card>
                     @endforeach
                 </div>
                 @if ($load_more)

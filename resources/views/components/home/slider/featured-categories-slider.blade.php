@@ -1,11 +1,15 @@
+@props([
+'categories'
+])
 <div class="relative lg:hidden">
     <div class="relative">
         <div class="swiper featured-slide">
             <div class="swiper-wrapper md:hidden">
+                @foreach ($categories as $category)
                 <div class="swiper-slide">
                     <div class="flex flex-col p-4 bg-white border border-gray-300 rounded-lg dark:border-gray-500 lg:p-5 xl:p-7">
                         <h4 class="text-heading text-sm md:text-base xl:text-lg font-semibold capitalize -mt-0.5 lg:-mt-1 xl:-mt-0 mb-2.5 lg:mb-3.5">
-                            Jewellers
+                            {{ $category->name }}
                         </h4>
                         <div class="grid grid-cols-3 gap-2.5 xl:gap-3">
                             <!-- Same as not slider section -->
@@ -36,6 +40,7 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
         <div class="absolute z-10 flex items-center w-full top-2/4 ">
