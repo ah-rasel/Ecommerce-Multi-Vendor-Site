@@ -8,7 +8,7 @@ use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::view('/', 'user.index');
+Route::view('/', 'user.index')->name('home');
 Route::view('/shop', 'user.shop')->name('shop');
 Route::resource('/product', ProductsController::class);
 
