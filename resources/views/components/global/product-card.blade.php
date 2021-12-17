@@ -8,7 +8,7 @@
                 <span class="box-border block max-w-full bg-none">
                     <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQwIiBoZWlnaHQ9IjQ0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
                 </span>
-                <img alt="Nike Bslak" src="{{ asset('images/products/p-22-s.png') }}" class="absolute inset-0 block object-cover w-full max-w-full max-h-full min-w-full min-h-full transition duration-200 ease-in bg-gray-300 rounded-md rounded-s-md group-hover:rounded-b-none">
+                <img alt="{{ $product->name }}" src="{{ asset('images').'/'.$product->image }}" class="absolute inset-0 block object-cover w-full max-w-full max-h-full min-w-full min-h-full transition duration-200 ease-in bg-gray-300 rounded-md rounded-s-md group-hover:rounded-b-none">
             </span>
         </div>
         <div class="w-full overflow-hidden md:px-2.5 xl:px-4">

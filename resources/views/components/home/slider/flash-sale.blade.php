@@ -21,7 +21,7 @@
                                             <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">
                                                 <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzMwIiBoZWlnaHQ9IjMzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=" class="block max-w-full p-0 m-0 border-0 bg-none">
                                             </span>
-                                            <img alt="Adidas Shoes Black" src="images/products/p-22-s.png" class="box-border absolute inset-0 block object-cover max-w-full max-h-full min-w-full min-h-full p-0 m-auto transition duration-150 ease-linear transform bg-gray-300 rounded-md rounded-s-md group-hover:scale-105">
+                                            <img alt="Adidas Shoes Black" src="{{ asset('images').'/'.$product->image }}" class="box-border absolute inset-0 block object-cover max-w-full max-h-full min-w-full min-h-full p-0 m-auto transition duration-150 ease-linear transform bg-gray-300 rounded-md rounded-s-md group-hover:scale-105">
                                         </span>
                                     </div>
                                     <div class="w-full overflow-hidden">

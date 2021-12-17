@@ -24,7 +24,7 @@
                                 <span class="box-border block max-w-full">
                                     <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY1IiBoZWlnaHQ9IjE2NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=" class="block max-w-full bg-none">
                                 </span>
-                                <img alt="Alter Products" src="images/products/p-20-m.png" class="box-border absolute inset-0 object-cover transition duration-300 ease-in-out transform bg-gray-300 rounded-md hover:scale-110">
+                                <img alt="Alter Products" src="{{ asset('images').'/'.$category->image }}" class="box-border absolute inset-0 object-cover transition duration-300 ease-in-out transform bg-gray-300 rounded-md hover:scale-110">
                             </span>
                         </a>
                     @endfor

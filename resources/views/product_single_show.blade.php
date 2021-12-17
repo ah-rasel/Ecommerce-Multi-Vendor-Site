@@ -25,12 +25,12 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="overflow-hidden">
-                                <img class="object-contain transition duration-500 h-64 object-center md:h-[500px] w-full" src="{{ asset('images/products/p-20-m.png') }}" alt="">
+                                <img class="object-contain transition duration-500 h-64 object-center md:h-[500px] w-full" src="{{ asset('images').'/'.$product->image }}" alt="{{ $product->name }}">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="overflow-hidden">
-                                <img class="object-contain transition duration-500 h-64 object-center md:h-[500px] w-full" src="{{ asset('images/products/p-20-m.png') }}" alt="">
+                                <img class="object-contain transition duration-500 h-64 object-center md:h-[500px] w-full" src="{{ asset('images').'/'.$product->image }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="overflow-hidden border dark:border-gray-600 h-16 w-16 sm:h-20 sm:w-20 p-1">
-                                <img class="h-16 w-16 sm:h-20 sm:w-20 object-contain object-center" src="{{ asset('images/products/p-20-m.png') }}" alt="">
+                                <img class="h-16 w-16 sm:h-20 sm:w-20 object-contain object-center" src="{{ asset('images').'/'.$product->image }}" alt="">
                             </div>
                         </div>
                     </div>

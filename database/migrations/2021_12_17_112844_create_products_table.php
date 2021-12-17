@@ -20,6 +20,8 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->string('sku')->nullable();
             $table->decimal('price',8,2)->default(0);
+            $table->string('image')->nullable();
+            $table->string('gallary')->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
