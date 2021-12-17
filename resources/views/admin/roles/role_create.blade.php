@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('admin_contents')
 <x-global.title>
-    Edit Role
+    Create New Role
 </x-global.title>
 <div class="py-6 px-4">
     <form action="{{ route('admin.role.store') }}" method="POST">

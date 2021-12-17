@@ -30,7 +30,8 @@
             </a>
         </li>
         @can('user_management_access')
-        <li class="relative px-6 py-3" @if (request()->is('admin/permission') || request()->is('admin/permission/*') || request()->is('admin/role') || request()->is('admin/role/*') )
+        <li class="relative px-6 py-3" @if (request()->is('admin/permission') || request()->is('admin/permission/*') || request()->is('admin/role') || request()->is('admin/role/*')
+            || request()->is('admin/users') || request()->is('admin/users/*') )
             x-data="{isUsersMenuOpen : true}"
             >
             <span class="absolute inset-y-0 left-0 w-1 bg-blue-400 rounded-tr-lg rounded-br-lg" aria-hidden="true">
@@ -66,8 +67,12 @@
                     ">
                         <a class="w-full" href="{{ route('admin.permission.index') }}">Permissions</a>
                     </li>
-                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                        <a class="w-full" href="#">Users</a>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
+                    @if (request()->is('admin/users') || request()->is('admin/users/*'))
+                    bg-white dark:bg-gray-800 border-r-4 border-blue-400
+                    @endif
+                    ">
+                        <a class="w-full" href="{{ route('admin.users.index') }}">Users</a>
                     </li>
                 </ul>
             </div>

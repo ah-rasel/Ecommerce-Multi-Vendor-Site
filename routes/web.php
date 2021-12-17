@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -12,12 +13,13 @@ Route::get('/', function () {
 Route::view('/shops', 'user.shops')->name('shops');
 Route::view('/shop/shop-name', 'vendor.single-shop')->name('single.shop');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-   
+
     // Admin
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('users', UsersController::class);
         Route::resource('role', RolesController::class);
-        Route::resource('permission', PermissionsController::class);
+        Route::resource('permission', PermissionsController::class)->only(['index']);
     });
 
     // Customer
