@@ -15,8 +15,9 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $var = "category - ".$this->faker->name(),
+            'name' => $var = "category - " . $this->faker->name(),
             'slug' => Str::slug($var),
+            'image' => 'products/' . $this->faker->numberBetween(1, 9) . '.png',
         ];
     }
 }

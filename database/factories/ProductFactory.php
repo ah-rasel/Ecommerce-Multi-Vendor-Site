@@ -15,12 +15,13 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $var = "product - ".$this->faker->name(),
+            'name' => $var = "product - " . $this->faker->name(),
             'slug' => Str::slug($var),
-            'description'=>$this->faker->text(200),
-            'sku'=>$this->faker->text(5),
-            'price'=>$this->faker->numberBetween(100,500),
-            'category_id'=>$this->faker->numberBetween(1,10),
+            'description' => $this->faker->text(200),
+            'sku' => $this->faker->text(5),
+            'price' => $this->faker->numberBetween(100, 500),
+            'category_id' => $this->faker->numberBetween(1, 10),
+            'image' => 'products/' . $this->faker->numberBetween(1, 9).'.png',
         ];
     }
 }

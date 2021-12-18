@@ -35,25 +35,23 @@
         <ul class="hidden space-x-5 tracking-wider text-gray-600 md:flex dark:text-gray-300">
             <li class="group">
                 <!-- Active -->
-                <a href="/" class="relative font-semibold text-gray-800 dark:text-gray-200">
+                <a href="/" class="relative {{ (url()->current() == route('home'))?'font-semibold text-gray-800':'' }}  dark:text-gray-200">
                     Home
-                    <!-- 
-                                        Active 
-                                        remove [-translate-x-9 , opacity-0]
-                                     -->
-                    <div class="absolute w-full h-1 bg-blue-500 rounded -bottom-7"></div>
-                </a>
-            </li>
-            <li class="group">
-                <a href="{{ route('shop') }}" class="relative">Store
-                    <div class="absolute w-full h-1 transition duration-500 bg-blue-500 rounded opacity-0 group-hover:opacity-100 -translate-x-9 group-hover:translate-x-0 -bottom-7">
+                    <div class="absolute w-full h-1 transition duration-500 bg-blue-500 rounded group-hover:opacity-100 {{ (url()->current() == route('home'))?'':'opacity-0  -translate-x-9' }} group-hover:translate-x-0 -bottom-7">
                     </div>
                 </a>
             </li>
             <li class="group">
-                <a href="{{ route('shops') }}" class="relative">
+                <a href="{{ route('shop') }}" class="relative {{ (url()->current() == route('shop'))?'font-semibold text-gray-800':'' }}">
+                    Store
+                    <div class="absolute w-full h-1 transition duration-500 bg-blue-500 rounded group-hover:opacity-100 {{ (url()->current() == route('shop'))?'':'opacity-0  -translate-x-9' }} group-hover:translate-x-0 -bottom-7">
+                    </div>
+                </a>
+            </li>
+            <li class="group">
+                <a href="{{ route('shops') }}" class="relative {{ (url()->current() == route('shops'))?'font-semibold text-gray-800':'' }}">
                     Shops
-                    <div class="absolute w-full h-1 transition duration-500 bg-blue-500 rounded opacity-0 group-hover:opacity-100 -translate-x-9 group-hover:translate-x-0 -bottom-7">
+                    <div class="absolute w-full h-1 transition duration-500 bg-blue-500 rounded group-hover:opacity-100 {{ (url()->current() == route('shops'))?'':'opacity-0  -translate-x-9' }} group-hover:translate-x-0 -bottom-7">
                     </div>
                 </a>
             </li>

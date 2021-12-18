@@ -25,12 +25,12 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="overflow-hidden">
-                                <img class="object-contain transition duration-500 h-64 object-center md:h-[500px] w-full" src="{{ asset('images/products/p-20-m.png') }}" alt="">
+                                <img class="object-contain transition duration-500 h-64 object-center md:h-[500px] w-full" src="{{ asset('images').'/'.$product->image }}" alt="{{ $product->name }}">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="overflow-hidden">
-                                <img class="object-contain transition duration-500 h-64 object-center md:h-[500px] w-full" src="{{ asset('images/products/p-20-m.png') }}" alt="">
+                                <img class="object-contain transition duration-500 h-64 object-center md:h-[500px] w-full" src="{{ asset('images').'/'.$product->image }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="overflow-hidden border dark:border-gray-600 h-16 w-16 sm:h-20 sm:w-20 p-1">
-                                <img class="h-16 w-16 sm:h-20 sm:w-20 object-contain object-center" src="{{ asset('images/products/p-20-m.png') }}" alt="">
+                                <img class="h-16 w-16 sm:h-20 sm:w-20 object-contain object-center" src="{{ asset('images').'/'.$product->image }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
         <div class="md:text-2xl font-bold my-3">Related Products</div>
         <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8">
             @foreach ($products as $product)
-            <x-global.product-card href="{{ route('product.show',$product->slug) }}" :name="$product->name" :description="$product->description" :current-price="$product->price" :regular-price="$product->price"></x-global.product-card>
+            <x-global.product-card href="{{ route('product.show',$product->slug) }}" :product="$product"></x-global.product-card>
             @endforeach
         </div>
     </div>

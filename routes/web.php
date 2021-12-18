@@ -3,17 +3,18 @@
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::view('/', 'user.index');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('/shop', 'user.shop')->name('shop');
 Route::resource('/product', ProductsController::class);
 
 Route::view('/shops', 'user.shops')->name('shops');
-Route::view('/shop/shop-name', 'vendor.single-shop')->name('single.shop');
+Route::get('/shop/shop-name', [HomeController::class,'vendor_shop_temp'])->name('single.shop');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Admin - Protected with middleware

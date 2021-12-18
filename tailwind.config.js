@@ -13,8 +13,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-                lato: ['Lato'],
-                satisfy: ['Satisfy'],
+                lato: ['Lato', ...defaultTheme.fontFamily.sans],
+                satisfy: ['Satisfy', ...defaultTheme.fontFamily.sans],
             },
         },
     },

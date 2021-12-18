@@ -22,6 +22,13 @@ let data = () => {
             this.dark = !this.dark
             setThemeToLocalStorage(this.dark)
         },
+        product_modal:false,
+        img:'',
+        productName:'',
+        productCurrentPrice:'',
+        productRegularPrice:'',
+        productDescription:'',
+        link:'',
         isSideMenuOpen: false,
         isBackdropOpen: false,
         toggleSideMenu() {
