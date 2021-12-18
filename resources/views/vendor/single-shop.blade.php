@@ -115,7 +115,9 @@
                     </span>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8 ">
-                    <x-global.product-card></x-global.product-card>
+                    @foreach ($products as $product)
+                    <x-global.product-card :product="$product"></x-global.product-card>
+                    @endforeach
                 </div>
                 <div class="pt-8 text-center xl:pt-14">
                     <button data-variant="slim" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none h-11 md:h-12 px-5 bg-gray-700 dark:bg-gray-600 text-white py-2 transform-none normal-case hover:text-white hover:bg-gray-600 hover:shadow-cart">Load

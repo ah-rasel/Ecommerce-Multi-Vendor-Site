@@ -14,7 +14,7 @@ Route::view('/shop', 'user.shop')->name('shop');
 Route::resource('/product', ProductsController::class);
 
 Route::view('/shops', 'user.shops')->name('shops');
-Route::view('/shop/shop-name', 'vendor.single-shop')->name('single.shop');
+Route::get('/shop/shop-name', [HomeController::class,'vendor_shop_temp'])->name('single.shop');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Admin - Protected with middleware

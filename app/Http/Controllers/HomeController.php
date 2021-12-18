@@ -21,4 +21,9 @@ class HomeController extends Controller
             'flash_sale_products'
         ));
     }
+    public function vendor_shop_temp()
+    {
+        $products = Product::inRandomOrder()->limit(12)->get();
+        return view('vendor.single-shop',compact('products'));
+    }
 }
