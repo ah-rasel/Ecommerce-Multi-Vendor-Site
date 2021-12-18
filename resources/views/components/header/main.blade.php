@@ -45,18 +45,22 @@
                                     <a href="{{ route('register') }}">Register</a>
                                 </li>
                                 @else
+                                @can('vendor_access')
                                 <li>
-                                    <a href="{{ route('customer.dashboard') }}">Dashboard</a>
+                                    <a href="{{ route('vendor.dashboard') }}">My Shop</a>
                                 </li>
+                                @endcan
                                 <li>
                                     <a href="#">Profile</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('customer.dashboard') }}">Dashboard</a>
                                 </li>
                                 <li>
                                     <a href="#">Orders</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-red-600" 
-                                    onclick="event.preventDefault();
+                                    <a href="#" class="text-red-600" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
