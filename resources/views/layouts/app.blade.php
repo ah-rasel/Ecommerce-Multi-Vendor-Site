@@ -8,7 +8,8 @@
     <title>{{ env('APP_NAME') ?? "Ecommerce | Multivendor" }}</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     @yield('slider-style')
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
+    <script src="/{{ asset('js/alpine.js') }}" defer></script>
     @livewireStyles
     <style>
         [x-cloak] {
