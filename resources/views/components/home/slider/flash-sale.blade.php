@@ -13,7 +13,7 @@
                     @foreach ($products as $product)
                     <!-- Slide -->
                     <div class="swiper-slide">
-                        <div class="flex flex-col justify-between h-full">
+                        <div role="button" @click="$dispatch('modal', {productName:'{{ $product->name }}', img: '/images/{{ $product->image }}',product_modal:true,link:'{{ route('product.show',$product->slug) }}',productDescription:'{{ $product->description }}',productCurrentPrice:'{{ $product->price }}',productRegularPrice:'{{ $product->price }}' })" class="flex flex-col justify-between h-full">
                             <div class="mb-5 sm:mb-7 lg:mb-8 2xl:mb-10 3xl:mb-12">
                                 <div class="box-border flex flex-col items-start pb-0 overflow-hidden rounded-md cursor-pointer group" title="Adidas Shoes Black">
                                     <div class="flex mb-3 md:mb-3.5 pb-0">

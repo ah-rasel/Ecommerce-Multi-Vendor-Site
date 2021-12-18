@@ -10,6 +10,11 @@
     @yield('slider-style')
     <script src="//unpkg.com/alpinejs" defer></script>
     @livewireStyles
+    <style>
+        [x-cloak] {
+            display: none
+        }
+    </style>
 </head>
 
 <body :class="{ 'dark': dark }" x-data="data()">
@@ -21,11 +26,13 @@
                 <x-header.menus.mobile></x-header.menus.mobile>
                 <main class="relative w-full">
                     <!-- Backdrop filter on side menu open -->
-                    <div class="absolute z-10 w-full h-full bg-gray-800 opacity-40" :class="{ 'hidden': !isBackdropOpen,'lg:hidden':isSideMenuOpen }">
+                    <div x-cloak class="absolute z-10 w-full h-full bg-gray-800 opacity-40" :class="{ 'hidden': !isBackdropOpen,'lg:hidden':isSideMenuOpen }">
                     </div>
 
                     <div class="relative h-full overflow-y-auto pt-7 md:pt-10">
                         @yield('contents')
+                        <x-global.product-modal></x-global.product-modal>
+
                         <!-- Footer -->
                         <x-footer></x-footer>
                         <!-- Mobile bottom fix menu -->
