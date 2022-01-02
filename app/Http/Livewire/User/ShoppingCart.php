@@ -12,13 +12,27 @@ class ShoppingCart extends Component
     public function AddToCart($id, $quantity)
     {
         $product = Product::findOrFail($id);
-        Cart::add($product->id, $product->name, $quantity, $product->price,500);
+        Cart::add($product->id, $product->name, $quantity, $product->price, 500);
         $this->emit('cart-updated');
+    }
+    public function RemoveFromCart($rowId)
+    {
+        Cart::remove($rowId);
+        $this->emit('cart-updated');
+    }
+    public function UpdateProductInCart($rowId, $type, $qty)
+    {
+        if ($type == 0) {
+            Cart::update($rowId, $qty - 1);
+        } else {
+            Cart::update($rowId, $qty + 1);
+        }
     }
     public function render()
     {
-        return view('livewire.user.shopping-cart',[
-            'products'=>Cart::content(),
+        return view('livewire.user.shopping-cart', [
+            'products' => Cart::content(),
+            'cart_price_total' => Cart::priceTotal(),
         ]);
     }
 }
