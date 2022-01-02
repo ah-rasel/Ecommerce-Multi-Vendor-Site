@@ -27,6 +27,7 @@ class ShoppingCart extends Component
         } else {
             Cart::update($rowId, $qty + 1);
         }
+        $this->emit('cart-updated');
     }
     public function render()
     {
