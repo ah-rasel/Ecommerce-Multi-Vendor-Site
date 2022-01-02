@@ -17,6 +17,8 @@ class ShoppingCart extends Component
     }
     public function render()
     {
-        return view('livewire.user.shopping-cart');
+        return view('livewire.user.shopping-cart',[
+            'products'=>Cart::content(),
+        ]);
     }
 }

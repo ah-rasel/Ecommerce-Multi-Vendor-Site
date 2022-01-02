@@ -1,9 +1,9 @@
 <div x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" :style="isCartOpen && {transform:'translateX(0)'}" class="fixed w-80 md:w-96 z-20 pt-20 bg-white dark:bg-gray-600 transition duration-200 translate-x-full top-0 right-0">
     <div class="overflow-y-scroll h-screen relative">
-        <div class="mt-10">
-            <div class="w-full px-5 md:px-7">
-                
-                @foreach ($items=[0,1,2,3,4,5] as $item)
+        <div class="mt-10 mb-10">
+            <div class="w-full px-5 md:px-7 pb-64">
+
+                @foreach ($products as $product)
                 <div class="group w-full h-auto flex justify-start items-center bg-white dark:bg-gray-600 py-2 md:py-4 border-b border-gray-200 dark:border-gray-900 relative last:border-b-0" title="Gucci Carlton UK">
                     <div class="relative flex w-24 md:w-28 h-24 md:h-28 rounded-md overflow-hidden bg-gray-200 flex-shrink-0 cursor-pointer mr-4">
                         <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">
@@ -20,11 +20,9 @@
                         </div>
                     </div>
                     <div class="flex flex-col w-full overflow-hidden">
-                        <a class="truncate text-sm text-heading mb-1.5 -mt-1" href="/products/gucci-carlton-uk">Gucci Carlton UK - M,
-                            Pink
-                        </a>
+                        <a class="truncate text-sm text-heading mb-1.5 -mt-1" href="/products/gucci-carlton-uk">{{ $product->name }}</a>
                         <span class="text-sm text-gray-400 mb-2.5">Unit Price :
-                            &nbsp;$14.99
+                            &nbsp;${{ $product->price }}
                         </span>
                         <div class="flex items-end justify-between">
                             <div class="group flex items-center justify-between rounded-md overflow-hidden flex-shrink-0 h-8 md:h-9 shadow-navigation bg-gray-700">
@@ -33,7 +31,7 @@
                                         <rect data-name="Rectangle 970" width="10px" height="2px" fill="currentColor"></rect>
                                     </svg>
                                 </button>
-                                <span class="font-semibold flex items-center justify-center h-full  transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-sm text-white w-8 md:w-10 ">1
+                                <span class="font-semibold flex items-center justify-center h-full  transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-sm text-white w-8 md:w-10 ">{{ $product->qty }}
                                 </span>
                                 <button class="flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 w-8 md:w-9 text-white bg-gray-700 hover:bg-gray-600 focus:outline-none">
                                     <svg data-name="plus (2)" xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 12 12">
@@ -43,7 +41,7 @@
                                     </svg>
                                 </button>
                             </div>
-                            <span class="font-semibold text-sm md:text-base text-heading leading-5">$14.99
+                            <span class="font-semibold text-sm md:text-base text-heading leading-5">${{ $product->qty*$product->price }}
                             </span>
                         </div>
                     </div>
