@@ -1,4 +1,4 @@
-<template x-on:modal.window="img = $event.detail.img; product_modal = $event.detail.product_modal;productName=$event.detail.productName;productCurrentPrice = $event.detail.productCurrentPrice;productRegularPrice = $event.detail.productRegularPrice;productDescription = $event.detail.productDescription;link=$event.detail.link;"></template>
+<template x-on:modal.window="productId = $event.detail.productId;img = $event.detail.img; product_modal = $event.detail.product_modal;productName=$event.detail.productName;productCurrentPrice = $event.detail.productCurrentPrice;productRegularPrice = $event.detail.productRegularPrice;productDescription = $event.detail.productDescription;link=$event.detail.link;"></template>
 
 <div x-show="product_modal" x-cloak class="fixed z-40 inset-0 overflow-y-auto" aria-modal="true">
     <div class="flex min-h-screen text-center md:block md:px-2 lg:px-4 -mt-6">
@@ -146,13 +146,13 @@
 
                                 <div class="pt-2 md:pt-4">
                                     <div class="flex items-center justify-between mb-4 space-x-3 sm:space-x-4">
-                                        <div class="group flex items-center justify-between rounded-md overflow-hidden flex-shrink-0 border h-11 md:h-12 border-gray-300" x-data="counter()">
+                                        <div class="group flex items-center justify-between rounded-md overflow-hidden flex-shrink-0 border h-11 md:h-12 border-gray-300">
                                             <button @click.prevent="decrement()" class="flex items-center justify-center flex-shrink-0 h-full transition ease-in-out duration-300 focus:outline-none w-10 md:w-12 border-e border-gray-300 hover:text-white hover:bg-gray-600">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="2px" viewBox="0 0 12 1.5">
                                                     <rect data-name="Rectangle 970" width="12px" height="2px" fill="currentColor"></rect>
                                                 </svg>
                                             </button>
-                                            <span class="font-semibold flex items-center justify-center h-full  transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base w-12  md:w-20 xl:w-24" x-text="count"></span>
+                                            <span class="font-semibold flex items-center justify-center h-full  transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base w-12  md:w-20 xl:w-24" x-text="productQuantity"></span>
                                             <button @click.prevent="increment()" class="flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 focus:outline-none w-10 md:w-12 hover:text-white hover:bg-gray-600">
                                                 <svg data-name="plus (2)" xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 12 12">
                                                     <g data-name="Group 5367">
@@ -161,7 +161,7 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                        <button @click.prevent="Livewire.emit('AddToCart',productName,10)" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-gray-600 hover:bg-gray-600 w-full h-11 md:h-12">Add To Cart</button>
+                                        <button @click.prevent="Livewire.emit('AddToCart',productId,productQuantity)" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-gray-600 hover:bg-gray-600 w-full h-11 md:h-12">Add To Cart</button>
                                     </div>
                                     <a :href="link" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-blue-600 hover:bg-gray-600 w-full h-11 md:h-12">View Details</a>
                                 </div>
@@ -175,19 +175,19 @@
     </div>
 </div>
 <script>
-    function counter() {
-        return {
-            count: 1,
-            increment() {
-                if (this.count < 10) {
-                    this.count++;
-                }
-            },
-            decrement() {
-                if (this.count > 1) {
-                    this.count--;
-                }
-            }
-        };
-    }
+    // function counter() {
+    //     return {
+    //         count: 1,
+    //         increment() {
+    //             if (this.count < 10) {
+    //                 this.count++;
+    //             }
+    //         },
+    //         decrement() {
+    //             if (this.count > 1) {
+    //                 this.count--;
+    //             }
+    //         }
+    //     };
+    // }
 </script>

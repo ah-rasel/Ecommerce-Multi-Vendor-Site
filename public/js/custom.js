@@ -24,13 +24,21 @@ let data = () => {
         },
         product_modal:false,
         img:'',
+        productId:'',
         productName:'',
+        productQuantity:10,
         productCurrentPrice:'',
         productRegularPrice:'',
         productDescription:'',
         link:'',
         isSideMenuOpen: false,
         isBackdropOpen: false,
+        increment(){
+            this.productQuantity = this.productQuantity+1;
+        },
+        decrement(){
+            this.productQuantity = this.productQuantity-1;
+        },
         toggleSideMenu() {
             if (this.isSideMenuOpen) {
                 this.isSideMenuOpen = false;
