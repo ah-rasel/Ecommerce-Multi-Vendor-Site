@@ -1,4 +1,4 @@
-<div class="group w-full h-auto flex justify-start items-center bg-white dark:bg-gray-600 py-2 md:py-4 border-b border-gray-200 dark:border-gray-900 relative last:border-b-0" title="Gucci Carlton UK">
+<div wire:loading.attr="disabled" role="button" class="group w-full h-auto flex justify-start items-center bg-white dark:bg-gray-600 py-2 md:py-4 border-b border-gray-200 dark:border-gray-900 relative last:border-b-0" title="Gucci Carlton UK">
     <div class="relative flex w-24 md:w-28 h-24 md:h-28 rounded-md overflow-hidden bg-gray-200 flex-shrink-0 cursor-pointer mr-4">
         <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">
             <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">

@@ -23,6 +23,7 @@ let data = () => {
             setThemeToLocalStorage(this.dark)
         },
         product_modal:false,
+        SuccessMessage:false,
         img:'',
         productId:'',
         productName:'',
