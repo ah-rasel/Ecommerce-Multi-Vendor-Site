@@ -161,7 +161,7 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                        <button data-variant="flat" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-gray-600 hover:bg-gray-600 w-full h-11 md:h-12">Add To Cart</button>
+                                        <button @click.prevent="Livewire.emit('AddToCart',productName,10)" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-gray-600 hover:bg-gray-600 w-full h-11 md:h-12">Add To Cart</button>
                                     </div>
                                     <a :href="link" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-blue-600 hover:bg-gray-600 w-full h-11 md:h-12">View Details</a>
                                 </div>
