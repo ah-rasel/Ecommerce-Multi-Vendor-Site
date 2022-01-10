@@ -4,7 +4,7 @@
             <div class="w-full px-5 md:px-7 pb-64">
 
                 @foreach ($products as $product)
-                <livewire:user.cart-single-product :name="$product->name" :rowId="$product->rowId" :price="$product->price" :qty="$product->qty" wire:key="{{ $loop->index }}">
+                <livewire:user.cart-single-product :name="$product->name" :rowId="$product->rowId" :price="$product->price" :qty="$product->qty" :image="$product->options->image" wire:key="{{ $loop->index }}">
                     @endforeach
             </div>
         </div>

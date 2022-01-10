@@ -8,11 +8,11 @@ use Livewire\Component;
 
 class ShoppingCart extends Component
 {
-    protected $listeners = ['AddToCart' => 'AddToCart','cart-updated'=>'render'];
+    protected $listeners = ['AddToCart' => 'AddToCart', 'cart-updated' => 'render'];
     public function AddToCart($id, $quantity)
     {
         $product = Product::findOrFail($id);
-        Cart::add($product->id, $product->name, $quantity, $product->price, 500);
+        Cart::add($product->id, $product->name, $quantity, $product->price, 500, ['image' => $product->image]);
         $this->emit('cart-updated');
     }
 

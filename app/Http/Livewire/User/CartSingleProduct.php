@@ -11,14 +11,16 @@ class CartSingleProduct extends Component
     public $name;
     public $price;
     public $qty;
+    public $image;
     
     protected $listeners = ['cart-updated' => 'render'];
-    public function mount($rowId, $name, $price, $qty)
+    public function mount($rowId, $name, $price, $qty,$image)
     {
         $this->rowId = $rowId;
         $this->name = $name;
         $this->price = $price;
         $this->qty = $qty;
+        $this->image = $image;
     }
     public function RemoveFromCart($rowId)
     {

@@ -161,7 +161,7 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                        <button @click.prevent="SuccessMessage=true,setTimeout(() => {SuccessMessage = false,productQuantity = 1}, 3000),Livewire.emit('AddToCart',productId,productQuantity)" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-gray-600 hover:bg-gray-600 w-full h-11 md:h-12">Add To Cart</button>
+                                        <button @click.prevent="Livewire.emit('AddToCart',productId,productQuantity),SuccessMessage=true,productQuantity = 1,setTimeout(() => {SuccessMessage = false}, 3000)" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-gray-600 hover:bg-gray-600 w-full h-11 md:h-12">Add To Cart</button>
                                     </div>
                                     <div x-show="SuccessMessage" x-init="setTimeout(() => SuccessMessage = false, 3000)" class="py-2 mb-2 border border-dashed border-green-200 text-green-500">
                                         <p class="text-center">Cart Updated Successfully .</p>
