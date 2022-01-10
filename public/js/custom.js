@@ -27,7 +27,7 @@ let data = () => {
         img:'',
         productId:'',
         productName:'',
-        productQuantity:10,
+        productQuantity:1,
         productCurrentPrice:'',
         productRegularPrice:'',
         productDescription:'',
