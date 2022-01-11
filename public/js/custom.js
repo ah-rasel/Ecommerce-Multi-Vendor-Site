@@ -23,14 +23,23 @@ let data = () => {
             setThemeToLocalStorage(this.dark)
         },
         product_modal:false,
+        SuccessMessage:false,
         img:'',
+        productId:'',
         productName:'',
+        productQuantity:1,
         productCurrentPrice:'',
         productRegularPrice:'',
         productDescription:'',
         link:'',
         isSideMenuOpen: false,
         isBackdropOpen: false,
+        increment(){
+            this.productQuantity = this.productQuantity+1;
+        },
+        decrement(){
+            this.productQuantity = this.productQuantity-1;
+        },
         toggleSideMenu() {
             if (this.isSideMenuOpen) {
                 this.isSideMenuOpen = false;

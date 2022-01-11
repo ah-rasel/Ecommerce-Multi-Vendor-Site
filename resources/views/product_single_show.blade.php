@@ -92,14 +92,14 @@
                 </div>
             </div>
             <div class="flex items-center space-x-4 md:pr-32 lg:pr-12 2xl:pr-32 3xl:pr-48 border-b border-gray-300 py-8">
-                <div class="group flex items-center justify-between rounded-md overflow-hidden flex-shrink-0 border h-11 md:h-12 border-gray-300" x-data="counter()">
-                    <button @click="decrement()" class="flex items-center justify-center flex-shrink-0 h-full transition ease-in-out duration-300 focus:outline-none w-10 md:w-12 border-e border-gray-300 hover:text-white hover:bg-gray-600">
+                <div class="group flex items-center justify-between rounded-md overflow-hidden flex-shrink-0 border h-11 md:h-12 border-gray-300">
+                    <button @click="decrement" class="flex items-center justify-center flex-shrink-0 h-full transition ease-in-out duration-300 focus:outline-none w-10 md:w-12 border-e border-gray-300 hover:text-white hover:bg-gray-600">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="2px" viewBox="0 0 12 1.5">
                             <rect data-name="Rectangle 970" width="12px" height="2px" fill="currentColor"></rect>
                         </svg>
                     </button>
-                    <span class="font-semibold flex items-center justify-center h-full  transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base w-12  md:w-20 xl:w-24" x-text="count"></span>
-                    <button @click="increment()" class="flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 focus:outline-none w-10 md:w-12 hover:text-white hover:bg-gray-600">
+                    <span class="font-semibold flex items-center justify-center h-full  transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base w-12  md:w-20 xl:w-24" x-text="productQuantity">1</span>
+                    <button @click="increment" class="flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 focus:outline-none w-10 md:w-12 hover:text-white hover:bg-gray-600">
                         <svg data-name="plus (2)" xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 12 12">
                             <g data-name="Group 5367">
                                 <path data-name="Path 17138" d="M6.749,5.251V0h-1.5V5.251H0v1.5H5.251V12h1.5V6.749H12v-1.5Z" fill="currentColor"></path>
@@ -107,8 +107,11 @@
                         </svg>
                     </button>
                 </div>
-                <button data-variant="slim" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none h-11 md:h-12 px-5 bg-heading text-white py-2 transform-none normal-case hover:text-white bg-gray-700 dark:bg-gray-400 hover:bg-gray-600 hover:shadow-cart w-full md:w-6/12 xl:w-full">
+                <button @click.prevent="SuccessMessage=true,setTimeout(() => {SuccessMessage = false,productQuantity = 1}, 3000),Livewire.emit('AddToCart',{{ $product->id }},productQuantity)" class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none h-11 md:h-12 px-5 bg-heading text-white py-2 transform-none normal-case hover:text-white bg-gray-700 dark:bg-gray-400 hover:bg-gray-600 hover:shadow-cart w-full md:w-6/12 xl:w-full">
                     <span class="py-2 3xl:px-8">Add to cart</span></button>
+            </div>
+            <div x-cloak x-show="SuccessMessage" x-init="setTimeout(() => SuccessMessage = false, 3000)" class="py-2 mb-2 border border-dashed border-green-200 text-green-500">
+                <p class="text-center">Cart Updated Successfully .</p>
             </div>
             <div class="py-6">
                 <ul class="text-sm space-y-5 pb-1">
@@ -145,21 +148,21 @@
     </div>
 </div>
 <script>
-    function counter() {
-        return {
-            count: 1,
-            increment() {
-                if (this.count < 10) {
-                    this.count++;
-                }
-            },
-            decrement() {
-                if (this.count > 1) {
-                    this.count--;
-                }
-            }
-        };
-    }
+    // function counter() {
+    //     return {
+    //         count: 1,
+    //         increment() {
+    //             if (this.count < 10) {
+    //                 this.count++;
+    //             }
+    //         },
+    //         decrement() {
+    //             if (this.count > 1) {
+    //                 this.count--;
+    //             }
+    //         }
+    //     };
+    // }
 </script>
 @endsection
 @section('slider-script')
