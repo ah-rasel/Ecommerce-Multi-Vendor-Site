@@ -39,7 +39,7 @@
                         <!-- Mobile bottom fix menu -->
                         <x-header.menus.mobile-bottom></x-header.menus.mobile-bottom>
                         <!-- Cart -->
-                        <livewire:user.cart>
+                        <livewire:user.shopping-cart>
                     </div>
                 </main>
             </div>
