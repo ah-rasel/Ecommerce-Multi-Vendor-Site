@@ -26,6 +26,6 @@ class Shop extends Component
     {
         return view('livewire.shop', [
             'products' => Product::paginate($this->product_to_display),
-        ]);
+        ])->extends('layouts.app')->section('contents');
     }
 }
