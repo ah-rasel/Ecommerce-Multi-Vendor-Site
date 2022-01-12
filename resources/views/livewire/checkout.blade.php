@@ -229,32 +229,34 @@
                      <span>Product</span>
                      <span class="ml-auto flex-shrink-0">Subtotal</span>
                   </div>
-                  <div class="flex py-4 items-center  border-b border-opacity-100 ">
+                  @foreach ($products as $product)
+                  <div wire:loading.attr="disabled" wire:key="{{ $product->rowId }}" class="flex py-4 items-center  border-b border-opacity-100 ">
                      <div class="flex border rounded-md border-opacity-100  w-16 h-16 flex-shrink-0">
                         <div style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;" class="group">
                            <div style="box-sizing: border-box; display: block; max-width: 100%;">
                               <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+" style="max-width: 100%; display: block; margin: 0px; border: none; padding: 0px;">
                            </div>
-                           <img alt="item image" src="{{ asset('images/products/2.png') }}" class="rounded-md mr-5" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
-                           <div class="absolute top-0 start-0 h-full w-full bg-black bg-opacity-30 md:bg-opacity-0 flex justify-center items-center transition duration-200 ease-in-out md:group-hover:bg-opacity-30 cursor-pointer">
-                              <svg wire:loading.remove stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="relative text-white text-2xl transform md:scale-0 md:opacity-0 transition duration-300 ease-in-out md:group-hover:scale-100 md:group-hover:opacity-100" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                           <img alt="item image" src="{{ asset('images/') }}/{{$product->options->image}}" class="rounded-md mr-5" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
+                           <div wire:click="RemoveFromCart('{{ $product->rowId }}')" class="absolute top-0 start-0 h-full w-full bg-black bg-opacity-30 md:bg-opacity-0 flex justify-center items-center transition duration-200 ease-in-out md:group-hover:bg-opacity-30 cursor-pointer">
+                              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="relative text-white text-2xl transform md:scale-0 md:opacity-0 transition duration-300 ease-in-out md:group-hover:scale-100 md:group-hover:opacity-100" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm52.7 283.3L256 278.6l-52.7 52.7c-6.2 6.2-16.4 6.2-22.6 0-3.1-3.1-4.7-7.2-4.7-11.3 0-4.1 1.6-8.2 4.7-11.3l52.7-52.7-52.7-52.7c-3.1-3.1-4.7-7.2-4.7-11.3 0-4.1 1.6-8.2 4.7-11.3 6.2-6.2 16.4-6.2 22.6 0l52.7 52.7 52.7-52.7c6.2-6.2 16.4-6.2 22.6 0 6.2 6.2 6.2 16.4 0 22.6L278.6 256l52.7 52.7c6.2 6.2 6.2 16.4 0 22.6-6.2 6.3-16.4 6.3-22.6 0z">
                                  </path>
                               </svg>
                            </div>
                         </div>
                      </div>
-                     <h6 class="text-15px  font-normal px-3">Fresh Express Iceberg Garden Salad Blend - 36oz x 3</h6>
-                     <div class="flex ml-auto text-15px  font-normal  px-2 flex-shrink-0">$160.00</div>
+                     <h6 class="text-15px  font-normal px-3">{{ $product->name }} - {{ $product->weight }}oz<span class="ml-1 font-semibold text-gray-500">x {{ $product->qty }}</span></h6>
+                     <div class="flex ml-auto text-15px  font-normal  px-2 flex-shrink-0">{{ env('CURRENCY').$product->price*$product->qty }}</div>
                   </div>
+                  @endforeach
                   <div class="flex items-center py-4 lg:py-5 border-b border-opacity-100 text-sm w-full text-15px  font-medium  last:border-b-0 last:text-base last:pb-0">Subtotal
-                     <span class="ml-auto flex-shrink-0 text-15px  font-bold">$160.00</span>
+                     <span class="ml-auto flex-shrink-0 text-15px  font-bold">{{ env('CURRENCY').$sub_total }}</span>
                   </div>
                   <div class="flex items-center py-4 lg:py-5 border-b border-opacity-100 text-sm w-full text-15px  font-medium  last:border-b-0 last:text-base last:pb-0">Shipping
                      <span class="ml-auto flex-shrink-0 text-15px  font-bold">$0</span>
                   </div>
                   <div class="flex items-center py-4 lg:py-5 border-b border-opacity-100 text-sm w-full text-15px  font-medium  last:border-b-0 last:text-base last:pb-0">Total
-                     <span class="ml-auto flex-shrink-0 text-15px  font-bold">$160.00</span>
+                     <span class="ml-auto flex-shrink-0 text-15px  font-bold">{{ env('CURRENCY').$sub_total }}</span>
                   </div>
                   <button class="inline-flex items-center justify-center flex-shrink-0 font-semibold leading-none rounded outline-none transition duration-300 ease-in-out focus:outline-none focus:shadow focus:ring-1 focus:ring-green-700 bg-green-400 text-light border border-transparent hover:bg-green-hover px-5 py-0 h-12 w-full mt-5 text-white">Order Now</button>
                </div>
