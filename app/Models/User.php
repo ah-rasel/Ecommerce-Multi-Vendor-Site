@@ -73,4 +73,12 @@ class User extends Authenticatable
     {
         return $this->created_at?->format('M d \a\t g:i A');
     }
+    public function addresses()
+    {
+        return $this->hasMany(DeliveryAddress::class);
+    }
+    public function numbers()
+    {
+        return $this->hasMany(DeliveryNumber::class);
+    }
 }
