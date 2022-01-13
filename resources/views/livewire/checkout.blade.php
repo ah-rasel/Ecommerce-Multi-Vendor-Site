@@ -1,11 +1,12 @@
 <div>
-   <div class="py-10 2xl:py-12 border-t border-opacity-100 bg-white dark:bg-gray-700 mx-auto max-w-[1920px] px-4 md:px-6 lg:px-8 2xl:px-10">
+   <div wire:loading.attr="disabled" class="py-10 2xl:py-12 border-t border-opacity-100 bg-white dark:bg-gray-700 mx-auto max-w-[1920px] px-4 md:px-6 lg:px-8 2xl:px-10">
       <div x-data="{
-         address:false,
-         schedule:false,
-         number:false,
+         address:@entangle('address'),
+         schedule:@entangle('schedule'),
+         number:@entangle('number'),
          new_address:false,
          new_phone:false,
+         Payment_Method:@entangle('payment_method'),
       }" class="flex xl:max-w-screen-xl mx-auto flex-col">
          <div class="flex flex-col lg:grid lg:grid-cols-12 grid-cols-1 flex-wrap gap-8">
             <div class="w-full col-start-1 col-end-9">
@@ -165,7 +166,7 @@
                         <span class="h-9 w-9 flex items-center justify-center rounded-full border-2 border-current text-skin-primary mr-3 font-semibold border-green-300 text-green-500">5</span>
                         <h3 class=" text-15px sm:text-base font-semibold text-green-500">Payment Option</h3>
                      </div>
-                     <div x-data="{Payment_Method:false}" class="px-5 sm:px-9 lg:px-20 sm:pr-9 pr-5 pb-6 ">
+                     <div class="px-5 sm:px-9 lg:px-20 sm:pr-9 pr-5 pb-6 ">
                         <div class="mb-6">
                            <div class="space-y-1 mb-3">
                               <div class="">
@@ -230,7 +231,7 @@
                   <div class="flex items-center py-4 lg:py-5 border-b border-opacity-100 text-sm w-full text-15px  font-medium  last:border-b-0 last:text-base last:pb-0">Total
                      <span class="ml-auto flex-shrink-0 text-15px  font-bold">{{ env('CURRENCY').$sub_total }}</span>
                   </div>
-                  <button class="inline-flex items-center justify-center flex-shrink-0 font-semibold leading-none rounded outline-none transition duration-300 ease-in-out focus:outline-none focus:shadow focus:ring-1 focus:ring-green-700 bg-green-400 text-light border border-transparent hover:bg-green-hover px-5 py-0 h-12 w-full mt-5 text-white">Order Now</button>
+                  <button wire:click="PlaceOrder()" class="inline-flex items-center justify-center flex-shrink-0 font-semibold leading-none rounded outline-none transition duration-300 ease-in-out focus:outline-none focus:shadow focus:ring-1 focus:ring-green-700 bg-green-400 text-light border border-transparent hover:bg-green-hover px-5 py-0 h-12 w-full mt-5 text-white">Order Now</button>
                </div>
                <p class="text-skin-muted text-sm leading-7 lg:leading-[27px] lg:text-15px mt-8">By placing your order, you agree to be bound by the " {{env('APP_NAME')}} "
                   <a class="text-skin-primary underline font-medium" href="#">Terms of Service </a>and
