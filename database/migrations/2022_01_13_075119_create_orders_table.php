@@ -20,6 +20,8 @@ class CreateOrdersTable extends Migration
             $table->foreignId('number_id')->references('id')->on('delivery_numbers');
             $table->foreignId('schedule_id')->references('id')->on('delivery_schedules');
             $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('payment_method')->default(0);
+            $table->string('amount');
             $table->string('notes')->nullable();
             $table->timestamp('required_date')->nullable();
             $table->timestamp('completion_date')->nullable();

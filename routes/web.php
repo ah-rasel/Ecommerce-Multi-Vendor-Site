@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Livewire\Checkout;
 use App\Http\Livewire\Shop;
+use App\Http\Livewire\User\Dashboard;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,7 +34,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Customer
     Route::prefix('customer')->name('customer.')->group(function () {
-        Route::view('/dashboard', 'user.customer.dashboard')->name('dashboard');
+        Route::get('/dashboard', Dashboard::class)->name('dashboard');
     });
 
 

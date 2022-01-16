@@ -17,5 +17,31 @@ class Order extends Model
         'status',
         'required_date',
         'completion_date',
+        'amount',
+        'payment_method',
     ];
+    public function getOrderStatusAttribute()
+    {
+        return [
+            '0' => 'In Review',
+            '1' => 'Confirmed',
+            '2' => 'Delivered',
+            '3' => 'Cancelled',
+        ][$this->status] ?? "In Review";
+    }
+    public function getOrderDateAttribute()
+    {
+        return $this->created_at?->format('M d Y \,\a\t g:i A');
+    }
+    public function getPaymentAttribute()
+    {
+        return [
+            '0' => 'Cash On Delivery',
+            '1' => 'Card Payment',
+        ][$this->payment_method] ?? "Cash on Delivery";
+    }
+    public function products()
+    {
+        return $this->hasMany(OrderProducts::class, 'order_id', 'id');
+    }
 }

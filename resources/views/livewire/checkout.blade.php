@@ -152,7 +152,7 @@
                                     <div class="mb-6">
                                        <div>
                                           <label for="instructionNote" class="block  opacity-70 font-normal text-13px lg:text-sm leading-none mb-3 cursor-pointer">Delivery Instructions Note</label>
-                                          <textarea id="instructionNote" name="instructionNote" class="px-4 py-3 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-[13px] lg:text-sm focus:outline-none focus:ring-0 placeholder-[#B3B3B3] bg-white border focus:shadow focus:border-2 border-gray-400 focus:border-green-300" autocomplete="off" spellcheck="false" rows="4" placeholder="e.g: Leave at my door if I am not around"></textarea>
+                                          <textarea wire:model.defer="notes" id="instructionNote" name="instructionNote" class="px-4 py-3 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-[13px] lg:text-sm focus:outline-none focus:ring-0 placeholder-[#B3B3B3] bg-white border focus:shadow focus:border-2 border-gray-400 focus:border-green-300" autocomplete="off" spellcheck="false" rows="4" placeholder="e.g: Leave at my door if I am not around"></textarea>
                                        </div>
                                     </div>
                                  </form>
