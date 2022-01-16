@@ -1,5 +1,3 @@
-@extends('layouts.app')
-@section('contents')
 <div class="">
     <div class="flex justify-center p-6 md:p-10 2xl:p-8 relative bg-no-repeat bg-center bg-cover" style="background-image: url('../images/slider/1.jpg');">
         <div class="absolute top-0 start-0 bg-black w-full h-full opacity-50 transition-opacity duration-500 group-hover:opacity-80">
@@ -12,10 +10,10 @@
         </div>
     </div>
     <div class="max-w-screen-2xl md:px-8 px-3 md:py-8 mx-auto ">
-        <div x-data="{tab:1}" class="py-16 lg:py-20 px-0 xl:max-w-screen-xl mx-auto flex md:flex-row w-full">
+        <div x-data="{SelectedTab:@entangle('SelectedTab')}" class="py-16 lg:py-20 px-0 xl:max-w-screen-xl mx-auto flex md:flex-row w-full">
             <div class="flex flex-col md:flex-row w-full">
                 <nav class="flex flex-col md:w-2/6 2xl:w-4/12 md:pr-8 lg:pr-12 xl:pr-16 2xl:pr-20 pb-2 md:pb-0">
-                    <a @click.prevent="tab=1" :class="{'bg-gray-200 dark:bg-gray-800 font-semibold':tab==1}" class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base  py-3.5 px-4 lg:px-5 rounded mb-2" href="/my-account">
+                    <a @click.prevent="SelectedTab=1" :class="{'bg-gray-200 dark:bg-gray-800 font-semibold':SelectedTab==1}" class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base  py-3.5 px-4 lg:px-5 rounded mb-2" href="/my-account">
                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-5 h-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                             <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M80 212v236a16 16 0 0016 16h96V328a24 24 0 0124-24h80a24 24 0 0124 24v136h96a16 16 0 0016-16V212">
                             </path>
@@ -24,7 +22,7 @@
                         </svg>
                         <span class="px-2">Dashboard</span>
                     </a>
-                    <a @click.prevent="tab=2" class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base   py-3.5 px-4 lg:px-5 rounded mb-2" :class="{'bg-gray-200 dark:bg-gray-800 font-semibold':tab==2}" href="/my-account/orders">
+                    <a @click.prevent="SelectedTab=2" class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base   py-3.5 px-4 lg:px-5 rounded mb-2" :class="{'bg-gray-200 dark:bg-gray-800 font-semibold':SelectedTab==2}" href="/my-account/orders">
                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-5 h-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="176" cy="416" r="16" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></circle>
                             <circle cx="400" cy="416" r="16" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></circle>
@@ -34,7 +32,7 @@
                         </svg>
                         <span class="px-2">Orders</span>
                     </a>
-                    <a @click.prevent="tab=3" :class="{'bg-gray-200 dark:bg-gray-800 font-semibold':tab==3}" class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base  py-3.5 px-4 lg:px-5 rounded mb-2" href="/my-account/account-details">
+                    <a @click.prevent="SelectedTab=3" :class="{'bg-gray-200 dark:bg-gray-800 font-semibold':SelectedTab==3}" class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base  py-3.5 px-4 lg:px-5 rounded mb-2" href="/my-account/account-details">
                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-5 h-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                             <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z">
                             </path>
@@ -43,7 +41,7 @@
                         </svg>
                         <span class="px-2">Account Details</span>
                     </a>
-                    <a @click.prevent="tab=4" :class="{'bg-gray-200 dark:bg-gray-800 font-semibold':tab==4}" class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base  py-3.5 px-4 lg:px-5 rounded mb-2" href="/my-account/change-password">
+                    <a @click.prevent="SelectedTab=4" :class="{'bg-gray-200 dark:bg-gray-800 font-semibold':SelectedTab==4}" class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base  py-3.5 px-4 lg:px-5 rounded mb-2" href="/my-account/change-password">
                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-5 h-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                             <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M262.29 192.31a64 64 0 1057.4 57.4 64.13 64.13 0 00-57.4-57.4zM416.39 256a154.34 154.34 0 01-1.53 20.79l45.21 35.46a10.81 10.81 0 012.45 13.75l-42.77 74a10.81 10.81 0 01-13.14 4.59l-44.9-18.08a16.11 16.11 0 00-15.17 1.75A164.48 164.48 0 01325 400.8a15.94 15.94 0 00-8.82 12.14l-6.73 47.89a11.08 11.08 0 01-10.68 9.17h-85.54a11.11 11.11 0 01-10.69-8.87l-6.72-47.82a16.07 16.07 0 00-9-12.22 155.3 155.3 0 01-21.46-12.57 16 16 0 00-15.11-1.71l-44.89 18.07a10.81 10.81 0 01-13.14-4.58l-42.77-74a10.8 10.8 0 012.45-13.75l38.21-30a16.05 16.05 0 006-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 00-6.07-13.94l-38.19-30A10.81 10.81 0 0149.48 186l42.77-74a10.81 10.81 0 0113.14-4.59l44.9 18.08a16.11 16.11 0 0015.17-1.75A164.48 164.48 0 01187 111.2a15.94 15.94 0 008.82-12.14l6.73-47.89A11.08 11.08 0 01213.23 42h85.54a11.11 11.11 0 0110.69 8.87l6.72 47.82a16.07 16.07 0 009 12.22 155.3 155.3 0 0121.46 12.57 16 16 0 0015.11 1.71l44.89-18.07a10.81 10.81 0 0113.14 4.58l42.77 74a10.8 10.8 0 01-2.45 13.75l-38.21 30a16.05 16.05 0 00-6.05 14.08c.33 4.14.55 8.3.55 12.47z">
                             </path>
@@ -59,97 +57,153 @@
                     </button>
                 </nav>
                 <div class="md:w-4/6 2xl:w-8/12 mt-4 md:mt-0">
-                    <div x-show="tab==1" class="">
+                    <div x-cloak x-show="SelectedTab==1" class="">
                         <h2 class="text-lg md:text-xl xl:text-2xl font-bold  mb-3 xl:mb-5">
                             Dashboard</h2>
                         <p class=" text-sm leading-7 md:text-base md:leading-loose lowercase">From
                             your
-                            account dashboard you can view your <a class=" underline font-semibold" href="#">recent
-                                orders</a>, manage your <a class=" underline font-semibold" href="#">Account
-                                Details</a> and <a class=" underline font-semibold" href="#">change
+                            account dashboard you can view your <a class="underline font-semibold" @click.prevent="SelectedTab=2" href="#">recent
+                                orders</a>, manage your <a class="underline font-semibold" @click.prevent="SelectedTab=3" href="#">Account
+                                Details</a> and <a class="underline font-semibold" @click.prevent="SelectedTab=4" href="#">change
                                 your password</a>.
                         </p>
                     </div>
-                    <div x-show="tab==2" class="">
-                        <h2 class="text-lg md:text-xl xl:text-2xl font-bold  mb-6 xl:mb-8">
-                            Orders
-                        </h2>
-                        <div class="w-full flex flex-col relative">
-                            <table class="hidden md:block">
-                                <thead class="text-sm lg:text-base">
-                                    <tr>
-                                        <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-start first:rounded-ts-md">
-                                            Order</th>
-                                        <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-start lg:text-center">
-                                            Date</th>
-                                        <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-start lg:text-center">
-                                            Status</th>
-                                        <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-start lg:text-center">
-                                            Total</th>
-                                        <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-start lg:text-right last:rounded-te-md">
-                                            Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-sm lg:text-base">
-                                    <tr class="border-b border-gray-300 last:border-b-0">
-                                        <td class="px-4 py-5 text-start">
-                                            <a class="underline hover:no-underline text-body" href="#">#3203</a>
-                                        </td>
-                                        <td class="text-start lg:text-center px-4 py-5 ">
-                                            March 18, 2021</td>
-                                        <td class="text-start lg:text-center px-4 py-5 ">
-                                            Completed</td>
-                                        <td class="text-start lg:text-center px-4 py-5 ">
-                                            $16,950.00 for 93 items</td>
-                                        <td class="text-right px-4 py-5 ">
-                                            <a class="text-sm leading-4 bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600 text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600" href="#">view</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="border-b border-gray-300 last:border-b-0">
-                                        <td class="px-4 py-5 text-start">
-                                            <a class="underline hover:no-underline text-body" href="#">#3204</a>
-                                        </td>
-                                        <td class="text-start lg:text-center px-4 py-5 ">
-                                            March 18, 2021</td>
-                                        <td class="text-start lg:text-center px-4 py-5 ">
-                                            Completed</td>
-                                        <td class="text-start lg:text-center px-4 py-5 ">
-                                            $16,950.00 for 93 items</td>
-                                        <td class="text-right px-4 py-5 ">
-                                            <a class="text-sm leading-4 bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600 text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600" href="#">view</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="md:hidden w-full space-y-4">
-                                <ul class="bg-white dark:bg-gray-800 text-sm font-semibold border border-gray-300 dark:border-gray-400 rounded-md flex flex-col px-4 pt-5 pb-6 space-y-5">
-                                    <li class="flex items-center justify-between">Order
-                                        1<span class="font-normal">
-                                            <a class="underline hover:no-underline text-body" href="#">#3204
-                                            </a>
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center justify-between">Date
-                                        <span class="font-normal">March 18, 2021</span>
-                                    </li>
-                                    <li class="flex items-center justify-between">Status
-                                        <span class="font-normal">Completed</span>
-                                    </li>
-                                    <li class="flex items-center justify-between">Total
-                                        <span class="font-normal">$16,950.00 for 93 items
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center justify-between">Actions
-                                        <span class="font-normal">
-                                            <a class="text-sm leading-4 bg-gray-700 text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600" href="/my-account/orders/3204">view
-                                            </a>
-                                        </span>
-                                    </li>
-                                </ul>
+                    <div x-cloak x-show="SelectedTab==2" class="">
+                        @if ($showOrders)
+                        <div class="">
+                            <h2 class="text-lg md:text-xl xl:text-2xl font-bold  mb-6 xl:mb-8">
+                                Orders
+                            </h2>
+                            <div class="w-full flex flex-col relative">
+                                <table class="hidden md:block">
+                                    <thead class="text-sm lg:text-base">
+                                        <tr>
+                                            <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-left first:rounded-ts-md">
+                                                Order</th>
+                                            <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-left lg:text-center">
+                                                Date</th>
+                                            <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-left lg:text-center">
+                                                Status</th>
+                                            <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-left lg:text-center">
+                                                Total</th>
+                                            <th class="bg-gray-200 dark:bg-gray-800 p-4  font-semibold text-left lg:text-right last:rounded-te-md">
+                                                Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-sm lg:text-base">
+                                        @foreach ($orders as $order)
+                                        <tr class="border-b border-gray-300 last:border-b-0">
+                                            <td class="px-4 py-5 text-left">
+                                                <a class="underline hover:no-underline text-body" href="#">#{{ $order->id }}</a>
+                                            </td>
+                                            <td class="text-left lg:text-center px-4 py-5 ">
+                                                {{ $order->order_date }}
+                                            </td>
+                                            <td class="text-left lg:text-center px-4 py-5 ">
+                                                {{ $order->order_status }}
+                                            </td>
+                                            <td class="text-left lg:text-center px-4 py-5 ">
+                                                ${{ $order->amount }} for {{ $order->products_count }} items</td>
+                                            <td class="text-right px-4 py-5 flex items-center space-x-3">
+                                                <a wire:click.prevent="ShowOrder({{ $order->id }},{{ $order }})" class="text-sm leading-4 bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-600 text-gray-800 px-5 py-2.5 inline-block hover:text-white hover:bg-gray-400 border border-gray-400" href="#">view</a>
+                                                <button title="Download Invoice for Order {{ $order->id }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="md:hidden w-full space-y-4">
+                                    @foreach ($orders as $order)
+                                    <ul class="bg-white dark:bg-gray-800 text-sm font-semibold border border-gray-300 dark:border-gray-400 rounded-md flex flex-col px-4 pt-5 pb-6 space-y-5">
+                                        <li class="flex items-center justify-between">Order No
+                                            <span class="font-normal">
+                                                <a class="underline hover:no-underline text-body" href="#">#{{ $order->id }}
+                                                </a>
+                                            </span>
+                                        </li>
+                                        <li class="flex items-center justify-between">Date
+                                            <span class="font-normal">{{ $order->order_date }}</span>
+                                        </li>
+                                        <li class="flex items-center justify-between">Status
+                                            <span class="font-normal">{{ $order->order_status }}</span>
+                                        </li>
+                                        <li class="flex items-center justify-between">Total
+                                            <span class="font-normal">${{ $order->amount }} for {{ $order->products_count }} items
+                                            </span>
+                                        </li>
+                                        <li class="flex items-center justify-between">Actions
+                                            <span class="font-normal">
+                                                <a class="text-sm leading-4 bg-gray-700 text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600" wire:click.prevent="ShowOrder({{ $order->id }})" href="#">view
+                                                </a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
+                        @elseif ($SpecificOrder)
+                        <div class="p-0">
+                            <div class="flex items-center justify-between mb-6 xl:mb-8">
+                                <h2 class="text-lg md:text-xl xl:text-2xl font-bold">Order details:</h2>
+                                <button wire:click="CloseOrder" class="flex items-center">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                                        </svg>
+                                    </span>
+                                    Back
+                                </button>
+                            </div>
+                            <table class="w-full font-semibold text-sm lg:text-base">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-gray-200 p-4 text-left first:rounded-ts-md w-1/2">Product</th>
+                                        <th class="bg-gray-200 p-4 text-left last:rounded-te-md w-1/2">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($products as $ordered_product)
+                                    <tr class="border-b font-normal border-gray-300 last:border-b-0">
+                                        <td class="p-4">
+                                            <a class="text-blue-400 hover:underline" href="{{ route('product.show',$ordered_product->product->slug) }}"> {{ $ordered_product->product->name   }}</a>
+                                            <span class="ml-1 font-semibold text-xs">(${{ $ordered_product->unit_price }}x{{ $ordered_product->quantity }})</span>
+                                        </td>
+                                        <td class="p-4">${{ $ordered_product->quantity*$ordered_product->unit_price }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr class="odd:bg-gray-200">
+                                        <td class="p-4 italic">Subtotal:</td>
+                                        <td class="p-4">${{ $order->amount }}</td>
+                                    </tr>
+                                    <tr class="odd:bg-gray-200">
+                                        <td class="p-4 italic">Shipping:</td>
+                                        <td class="p-4">$0.00<span class="text-[13px] font-normal pl-1.5 inline-block">via Flat rate</span></td>
+                                    </tr>
+                                    <tr class="odd:bg-gray-200">
+                                        <td class="p-4 italic">Payment method:</td>
+                                        <td class="p-4">{{ $order->payment }}</td>
+                                    </tr>
+                                    <tr class="odd:bg-gray-200">
+                                        <td class="p-4 italic">Note:</td>
+                                        <td class="p-4">{{ $order->notes }}</td>
+                                    </tr>
+                                    <tr class="odd:bg-gray-200">
+                                        <td class="p-4 italic">Total:</td>
+                                        <td class="p-4">${{ $order->amount }}</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        @endif
                     </div>
-                    <div x-show="tab==3" class="">
+                    <div x-cloak x-show="SelectedTab==3" class="">
                         <div class="w-full flex flex-col relative">
                             <h2 class="text-lg md:text-xl xl:text-2xl font-bold mb-6 xl:mb-8">
                                 Account Details</h2>
@@ -204,7 +258,7 @@
                             </form>
                         </div>
                     </div>
-                    <div x-show="tab==4" class="">
+                    <div x-cloak x-show="SelectedTab==4" class="">
                         <h2 class="text-lg md:text-xl xl:text-2xl font-bold mb-6 xl:mb-8">
                             Change Password</h2>
                         <div class="w-full flex  h-full lg:w-8/12 flex-col relative" x-data="{password_hidden:true}">
@@ -255,4 +309,3 @@
         </div>
     </div>
 </div>
-@endsection
