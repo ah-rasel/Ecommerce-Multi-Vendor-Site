@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PermissionsController;
+use App\Http\Controllers\Admin\ProductsController as AdminProductsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', Shop::class)->name('shop');
-Route::resource('/product', ProductsController::class);
+Route::resource('/product', ProductsController::class)->only('show');
 
 Route::view('/shops', 'user.shops')->name('shops');
 Route::get('/shop/shop-name', [HomeController::class, 'vendor_shop_temp'])->name('single.shop');
@@ -29,7 +30,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::resource('users', UsersController::class);
             Route::resource('role', RolesController::class);
             Route::resource('permission', PermissionsController::class)->only(['index']);
-            Route::resource('/shops',ShopsController::class);
+            Route::resource('/shops', ShopsController::class);
+            Route::resource('/products', AdminProductsController::class);
         });
     });
 

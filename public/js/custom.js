@@ -78,9 +78,13 @@ let data = () => {
 
         },
 
+        isProductsMenuOpen: false,
         isUsersMenuOpen: false,
         toggleUsersMenu() {
             this.isUsersMenuOpen = !this.isUsersMenuOpen
+        },
+        toggleProductsMenu() {
+            this.isProductsMenuOpen = !this.isProductsMenuOpen
         },
 
         // Modal
