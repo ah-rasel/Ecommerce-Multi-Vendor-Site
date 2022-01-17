@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ShopsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Livewire\Checkout;
 use App\Http\Livewire\Shop;
@@ -28,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::resource('users', UsersController::class);
             Route::resource('role', RolesController::class);
             Route::resource('permission', PermissionsController::class)->only(['index']);
+            Route::resource('/shops',ShopsController::class);
         });
     });
 
