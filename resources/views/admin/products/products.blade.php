@@ -3,7 +3,7 @@
 <x-global.title>
     Shops
 </x-global.title>
-<a href="{{ route('admin.shops.create') }}" class="px-8 py-2 bg-blue-400 text-white">Add New Product</a>
+<a href="{{ route('admin.products.create') }}" class="px-8 py-2 bg-blue-400 text-white">Add New Product</a>
 <x-table.table_index>
     <x-slot name="head">
         <x-table.heading> Image </x-table.heading>
@@ -24,12 +24,12 @@
                 </div>
             </x-table.cell>
             <x-table.cell>
-            <a href="{{ route('product.show',$product->slug) }}" class="hover:underline">
+                <a href="{{ route('product.show',$product->slug) }}" class="hover:underline">
                     {{ $product->name }}
                 </a>
             </x-table.cell>
             <x-table.cell>
-                Category Name
+                {{ $product->category->name }}
             </x-table.cell>
             <x-table.cell>
                 Abcd Shop
