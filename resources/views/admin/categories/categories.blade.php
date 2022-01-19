@@ -41,7 +41,7 @@
                             </svg>
                         </a>
                     </div>
-                    <x-table.button.action href="#" edit></x-table.button.action>
+                    <x-table.button.action href="{{ route('admin.category.edit',$category) }}" edit></x-table.button.action>
                     <form action="{{ route('admin.category.destroy',$category) }}" onsubmit="return confirm('Are you sure to delete this Category ?');" method="POST">
                         @csrf
                         @method('DELETE')
