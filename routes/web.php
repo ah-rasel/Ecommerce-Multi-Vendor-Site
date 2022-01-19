@@ -33,6 +33,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::resource('permission', PermissionsController::class)->only(['index']);
             Route::resource('/shops', ShopsController::class);
             Route::resource('/products', AdminProductsController::class);
+            Route::resource('/category',CategoryController::class);
         });
     });
 
