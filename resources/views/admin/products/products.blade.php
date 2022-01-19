@@ -3,9 +3,9 @@
 <x-global.title>
     Products
     <span class="font-normal text-base ml-6">
-        <a href="{{ route('admin.products.create') }}" class="px-4 py-2 shadow shadow-slate-200 dark:shadow-slate-600 rounded text-slate-600">
-            Add New product
-        </a>
+        <x-table.add_item_button href="{{ route('admin.products.create') }}">
+            Add new Product
+        </x-table.add_item_button>
     </span>
 </x-global.title>
 <x-table.table_index>
@@ -59,7 +59,7 @@
                         </a>
                     </div>
                     <x-table.button.action href="#" edit></x-table.button.action>
-                    <form action="#" onsubmit="return confirm('Are you sure to delete this Product ?');" method="POST">
+                    <form action="{{ route('admin.products.destroy',$product) }}" onsubmit="return confirm('Are you sure to delete this Product ?');" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-warning" type="submit">
