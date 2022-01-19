@@ -1,9 +1,13 @@
 @extends('layouts.admin')
 @section('admin_contents')
 <x-global.title>
-    Shops
+    Products
+    <span class="font-normal text-base ml-6">
+        <a href="{{ route('admin.products.create') }}" class="px-4 py-2 shadow shadow-slate-200 dark:shadow-slate-600 rounded text-slate-600">
+            Add New product
+        </a>
+    </span>
 </x-global.title>
-<a href="{{ route('admin.products.create') }}" class="px-8 py-2 bg-blue-400 text-white">Add New Product</a>
 <x-table.table_index>
     <x-slot name="head">
         <x-table.heading> Image </x-table.heading>
@@ -35,10 +39,11 @@
                 Abcd Shop
             </x-table.cell>
             <x-table.cell>
-                ${{ $product->price }}
+                ${{ $product->current_price }}
+                <span class="line-through text-slate-500 text-sm">${{ $product->regular_price }}</span>
             </x-table.cell>
             <x-table.cell>
-                50
+                {{ $product->quantity }}
             </x-table.cell>
             <x-table.cell>
                 <x-global.badge>Active</x-global.badge>
@@ -54,7 +59,7 @@
                         </a>
                     </div>
                     <x-table.button.action href="#" edit></x-table.button.action>
-                    <form action="#" onsubmit="return confirm('Are you sure to delete this User ?');" method="POST">
+                    <form action="#" onsubmit="return confirm('Are you sure to delete this Product ?');" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-warning" type="submit">

@@ -3,7 +3,7 @@
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-600 sm:rounded-lg">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
-                    <thead class="bg-gray-100 dark:bg-gray-700">
+                    <thead class="bg-gray-200 dark:bg-gray-700">
                         <tr>
                             {{ $head }}
                         </tr>

@@ -19,9 +19,11 @@ class ProductFactory extends Factory
             'slug' => Str::slug($var),
             'description' => $this->faker->text(200),
             'sku' => $this->faker->text(5),
-            'price' => $this->faker->numberBetween(100, 500),
+            'quantity' => $this->faker->numberBetween(5, 50),
+            'current_price' => $this->faker->numberBetween(100, 500),
+            'regular_price' => $this->faker->numberBetween(100, 500),
             'category_id' => $this->faker->numberBetween(1, 10),
-            'image' => 'products/' . $this->faker->numberBetween(1, 9).'.png',
+            'image' => 'products/' . $this->faker->numberBetween(1, 9) . '.png',
         ];
     }
 }
