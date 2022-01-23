@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
             RolesAndPermisisonsCombinedSeeder::class,
             DeliverySeeder::class,
         ]);
-        \App\Models\Category::factory(10)->create();
         \App\Models\Shop::factory(20)->create();
+        \App\Models\Category::factory(10)->create();
         \App\Models\Product::factory(50)->create();
     }
 }

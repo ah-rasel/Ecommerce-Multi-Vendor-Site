@@ -46,10 +46,10 @@ class ShopsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Shop $shop)
+    public function show($slug)
     {
-        $products = Product::inRandomOrder()->limit(12)->get();
-        return view('vendor.single-shop', compact('shop', 'products'));
+        $shop = Shop::with(['products'])->where('slug', $slug)->first();
+        return view('vendor.single-shop', compact('shop'));
     }
 
     /**

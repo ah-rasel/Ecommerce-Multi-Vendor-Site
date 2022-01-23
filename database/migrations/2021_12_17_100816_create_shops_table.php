@@ -21,7 +21,7 @@ class CreateShopsTable extends Migration
             $table->string('address');
             $table->string('logo')->nullable();
             $table->string('banner')->nullable();
-            $table->string('phone',20)->nullable();
+            $table->string('phone', 20)->nullable();
             $table->boolean('status')->default(0);
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

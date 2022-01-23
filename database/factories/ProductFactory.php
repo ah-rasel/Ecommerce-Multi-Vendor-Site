@@ -23,6 +23,7 @@ class ProductFactory extends Factory
             'current_price' => $this->faker->numberBetween(100, 500),
             'regular_price' => $this->faker->numberBetween(100, 500),
             'category_id' => $this->faker->numberBetween(1, 10),
+            'shop_id' => $this->faker->numberBetween(1, 20),
             'image' => 'products/' . $this->faker->numberBetween(1, 9) . '.png',
         ];
     }
