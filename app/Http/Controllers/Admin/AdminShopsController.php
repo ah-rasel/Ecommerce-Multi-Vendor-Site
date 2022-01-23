@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Product;
-use App\Models\Shop;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ShopsController extends Controller
+class AdminShopsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class ShopsController extends Controller
      */
     public function index()
     {
-        $shops = Shop::all();
-        return view('user.shops', compact('shops'));
+        return view('admin.shops');
     }
 
     /**
@@ -46,10 +44,9 @@ class ShopsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Shop $shop)
+    public function show($id)
     {
-        $products = Product::inRandomOrder()->limit(12)->get();
-        return view('vendor.single-shop', compact('shop', 'products'));
+        //
     }
 
     /**

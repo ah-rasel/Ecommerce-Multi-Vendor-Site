@@ -7,11 +7,11 @@
                 <span class="box-border block">
                     <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjIiIGhlaWdodD0iNjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
                 </span>
-                <img alt="Shop Image / Logo" src="{{asset('images/shops/17.png')}}" class="box-border absolute inset-0 block rounded-md">
+                <img title="{{ $shop->name }}-Logo" alt="{{ $shop->name }}-Logo" src="{{asset('images')}}/{{ $shop->logo }}" class="box-border absolute inset-0 block rounded-md">
             </span>
         </div>
         <div class="px-4">
-            <h4 class="text-sm font-semibold md:text-base xl:text-lg">Area 365 Mart
+            <h4 class="text-sm font-semibold md:text-base xl:text-lg">{{ $shop->name }}
             </h4>
             <button class="text-sm font-semibold transition-all opacity-80 hover:opacity-100">More
                 Info</button>
@@ -28,13 +28,13 @@
                                     <span class="box-border block max-w-full p-0 m-0 bg-none">
                                         <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=" class="block max-w-full p-0 m-0 bg-none">
                                     </span>
-                                    <img alt="Area 365 Mart" src="{{asset('images/shops/17.png')}}" class="box-border absolute inset-0 block max-w-full max-h-full min-w-full min-h-full p-0 m-auto rounded-xl">
+                                    <img title="{{ $shop->name }}-Logo" alt="{{ $shop->name }}-Logo" src="{{asset('images')}}/{{ $shop->logo }}" class="box-border absolute inset-0 block max-w-full max-h-full min-w-full min-h-full p-0 m-auto rounded-xl">
                                 </span>
                             </div>
                             <h4 class="text-sm md:text-base xl:text-lg font-semibold mt-6 mb-1.5">
-                                Area 365 Mart</h4>
-                            <p class="text-sm leading-7 sm:leading-6">You will get
-                                quality product</p>
+                                {{ $shop->name }}
+                            </h4>
+                            <p class="text-sm leading-7 sm:leading-6">{{ $shop->tag_line }}</p>
                             <div class="flex items-center flex-wrap justify-center space-x-2 pt-4 mt-0.5">
                                 <button aria-label="facebook" class="react-share__ShareButton" style="background-color: transparent; border: none; padding: 0px; font: inherit; color: inherit; cursor: pointer;">
                                     <svg viewBox="0 0 64 64" width="25" height="25" class="transition-all hover:opacity-90">
@@ -60,27 +60,17 @@
                             <div class="block">
                                 <h4 class="font-semibold text-sm mb-1.5">Address:
                                 </h4>
-                                <p class="text-sm leading-7 sm:leading-6">115 E 9th
-                                    St, New York, CA 90079,USA</p>
+                                <p class="text-sm leading-7 sm:leading-6">{{ $shop->address }}</p>
                             </div>
                             <div class="block">
                                 <h4 class="font-semibold text-sm mb-1.5">Phone:
                                 </h4>
                                 <div class="flex items-center justify-between">
                                     <p class="text-sm leading-7 sm:leading-6">
-                                        +971-321-4841-78</p>
+                                        {{$shop->phone}}
+                                    </p>
                                     <button class="flex-shrink-0 text-sm font-semibold transition-all hover:opacity-80">Call
                                         Now</button>
-                                </div>
-                            </div>
-                            <div class="block">
-                                <h4 class="font-semibold text-sm mb-1.5">Website:
-                                </h4>
-                                <div class="flex items-center justify-between">
-                                    <p class="text-sm leading-7 sm:leading-6">
-                                        azharasel.ml</p>
-                                    <a href="//azharasel.ml" target="_blank" class="flex-shrink-0 text-sm font-semibold transition-all hover:opacity-80">Visit
-                                        Site</a>
                                 </div>
                             </div>
                             <div class="block">
@@ -111,7 +101,7 @@
                         <span class="box-border block max-w-full p-0 m-0 bg-none">
                             <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjc2MCIgaGVpZ2h0PSIxMDIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg==" class="block max-w-full p-0 m-0 bg-none">
                         </span>
-                        <img alt="Area 365 Mart" src="{{asset('images/shops/shop-banner-1.jpg')}}" class="box-border absolute inset-0 block max-w-full max-h-full min-w-full min-h-full p-0 m-auto rounded-xl">
+                        <img title="{{ $shop->name }}-Banner" alt="{{ $shop->name }}-Banner" src="{{asset('images')}}/{{ $shop->banner }}" class="box-border absolute inset-0 block max-w-full max-h-full min-w-full min-h-full p-0 m-auto rounded-xl">
                     </span>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8 ">

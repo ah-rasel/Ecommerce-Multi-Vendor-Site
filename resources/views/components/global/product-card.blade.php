@@ -20,8 +20,8 @@ class="group box-border overflow-hidden flex rounded-md cursor-pointer pr-0 pb-2
             {{ $product->description }}
         </p>
         <div class="text-heading font-semibold text-sm sm:text-base mt-1.5 space-x-2 lg:text-lg lg:mt-2.5">
-            <span class="inline-block">${{ $product->price }}</span>
-            <del class="font-normal text-gray-800 sm:text-base">${{ $product->price }}</del>
+            <span class="inline-block">${{ $product->current_price }}</span>
+            <del class="font-normal text-gray-800 sm:text-base">${{ $product->regular_price }}</del>
         </div>
     </div>
 </div>
