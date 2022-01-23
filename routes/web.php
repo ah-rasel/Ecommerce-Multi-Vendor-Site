@@ -20,7 +20,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', Shop::class)->name('shop');
 Route::resource('/product', ProductsController::class)->only('show');
 
-Route::resource('/shops', ShopsController::class);
+Route::resource('/shops', ShopsController::class)->only('index','show');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/checkout', Checkout::class)->name('checkout');
@@ -32,7 +32,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::resource('users', UsersController::class);
             Route::resource('role', RolesController::class);
             Route::resource('permission', PermissionsController::class)->only(['index']);
-            Route::resource('/shops', AdminShopsController::class);
+            Route::resource('/shops', AdminShopsController::class)->except('show');
             Route::resource('/products', AdminProductsController::class);
             Route::resource('/category', CategoryController::class);
         });

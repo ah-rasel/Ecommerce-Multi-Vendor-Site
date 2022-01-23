@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 
 class AdminShopsController extends Controller
@@ -14,7 +15,8 @@ class AdminShopsController extends Controller
      */
     public function index()
     {
-        return view('admin.shops');
+        $shops = Shop::with('user')->withCount('products')->get();
+        return view('admin.shops',compact('shops'));
     }
 
     /**
@@ -78,8 +80,9 @@ class AdminShopsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Shop $shop)
     {
-        //
+        $shop->delete();
+        return redirect()->back();
     }
 }

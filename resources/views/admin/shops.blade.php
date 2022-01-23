@@ -15,34 +15,36 @@
         <x-table.heading> Actions </x-table.heading>
     </x-slot>
     <x-slot name="body">
-        @foreach ($roles=[0,1,2,3,4] as $role)
+        @foreach ($shops as $shop)
         <x-table.row>
             <x-table.cell>
                 <div class="w-10 h-10 box-border inline-block overflow-hidden rounded-sm">
-                    <img src="https://pickbazar-react-admin-rest.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F882%2Fconversions%2FFurniture-thumbnail.jpg&amp;w=48&amp;q=75" alt="">
+                    <img src="{{ asset('images/').'/'.$shop->logo }}" alt="">
                 </div>
             </x-table.cell>
             <x-table.cell>
-                Furniture Shop
-            </x-table.cell>
-            <x-table.cell>
-                <a href="#" class="text-blue-400 hover:underline">
-                    Christopher Nolan
+            <a href="#" class="text-blue-400 hover:underline">
+                {{ $shop->name }}
                 </a>
             </x-table.cell>
             <x-table.cell>
-                50
+                <a href="#" class="text-blue-400 hover:underline">
+                {{ $shop->user->name }}
+                </a>
+            </x-table.cell>
+            <x-table.cell>
+                {{ $shop->products_count }}
             </x-table.cell>
             <x-table.cell>
                 10
             </x-table.cell>
             <x-table.cell>
-                <x-global.badge>Active</x-global.badge>
+                <x-global.badge>{{ $shop->shop_status }}</x-global.badge>
             </x-table.cell>
             <x-table.cell>
                 <div class="flex space-x-2 md:space-x-4">
                     <div class="">
-                        <a href="#">
+                        <a target="blank" href="{{ route('shops.show',$shop) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -50,7 +52,7 @@
                         </a>
                     </div>
                     <x-table.button.action href="#" edit></x-table.button.action>
-                    <form action="#" onsubmit="return confirm('Are you sure to delete this User ?');" method="POST">
+                    <form action="{{ route('admin.shops.destroy',$shop) }}" onsubmit="return confirm('Are you sure to delete this User ?');" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-warning" type="submit">

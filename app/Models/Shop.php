@@ -20,8 +20,19 @@ class Shop extends Model
     {
         return 'slug';
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+    public function getShopStatusAttribute()
+    {
+        return [
+            0=>'In Review',
+            1=>'Active',
+        ][$this->status];
     }
 }

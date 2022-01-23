@@ -48,7 +48,7 @@ class ShopsController extends Controller
      */
     public function show($slug)
     {
-        $shop = Shop::with(['products'])->where('slug', $slug)->first();
+        $shop = Shop::with(['products'])->where('slug', $slug)->firstOrFail();
         return view('vendor.single-shop', compact('shop'));
     }
 
