@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Order;
 use App\Models\OrderProducts;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class Dashboard extends Component
@@ -13,6 +14,12 @@ class Dashboard extends Component
     public $showOrders = true;
     public $order = false;
     public $products = false;
+    // public function mount()
+    // {
+    //     if(Gate::allows('vendor_access')){
+    //         return redirect()->route('vendor.dashboard');
+    //     }
+    // }
     public function ShowOrder($id, Order $order)
     {
         $this->order = $order;
