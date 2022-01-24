@@ -49,9 +49,9 @@
                 </a>
             </li>
             <li class="group">
-                <a href="{{ route('shops') }}" class="relative {{ (url()->current() == route('shops'))?'font-semibold text-gray-800':'' }}">
+                <a href="{{ route('shops.index') }}" class="relative {{ (url()->current() == route('shops.index'))?'font-semibold text-gray-800':'' }}">
                     Shops
-                    <div class="absolute w-full h-1 transition duration-500 bg-blue-500 rounded group-hover:opacity-100 {{ (url()->current() == route('shops'))?'':'opacity-0  -translate-x-9' }} group-hover:translate-x-0 -bottom-7">
+                    <div class="absolute w-full h-1 transition duration-500 bg-blue-500 rounded group-hover:opacity-100 {{ (url()->current() == route('shops.index'))?'':'opacity-0  -translate-x-9' }} group-hover:translate-x-0 -bottom-7">
                     </div>
                 </a>
             </li>

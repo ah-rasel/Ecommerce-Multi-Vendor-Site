@@ -18,11 +18,14 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
-            $table->string('sku')->nullable();
-            $table->decimal('price',8,2)->default(0);
+            $table->string('sku', 8)->nullable();
+            $table->integer('quantity');
+            $table->decimal('current_price', 8, 2);
+            $table->decimal('regular_price', 8, 2)->nullable();
             $table->string('image')->nullable();
             $table->string('gallary')->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('shop_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

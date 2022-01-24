@@ -45,17 +45,18 @@
                                     <a href="{{ route('register') }}">Register</a>
                                 </li>
                                 @else
-                                @can('vendor_access')
-                                <li>
-                                    <a href="{{ route('vendor.dashboard') }}">My Shop</a>
-                                </li>
-                                @endcan
                                 <li>
                                     <a href="#">Profile</a>
                                 </li>
+                                @can('vendor_access')
+                                <li>
+                                    <a href="{{ route('vendor.dashboard') }}">Dashboard</a>
+                                </li>
+                                @else
                                 <li>
                                     <a href="{{ route('customer.dashboard') }}">Dashboard</a>
                                 </li>
+                                @endcan
                                 <li>
                                     <a href="#">Orders</a>
                                 </li>
