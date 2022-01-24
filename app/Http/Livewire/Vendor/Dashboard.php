@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Vendor;
 
+use App\Models\Shop;
 use Livewire\Component;
 
 class Dashboard extends Component
