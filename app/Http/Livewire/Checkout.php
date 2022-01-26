@@ -13,14 +13,40 @@ use Livewire\Component;
 
 class Checkout extends Component
 {
-    public $address = false;
+    public $address = '';
     public $schedule = false;
-    public $number = false;
+    public $number = '';
+    public $number_type = NULL;
     public $payment_method = 0;
     public $notes;
     public $sub_total = false;
+    public $new_address = false;
+    public $new_phone = false;
+    public $address_type = NULL;
 
     protected $listeners = ['cart-updated' => 'render'];
+    protected $rules = [
+        'number'
+    ];
+    public function NewAddress()
+    {
+        DeliveryAddress::create([
+            'address_type' => $this->address_type,
+            'address' => $this->address,
+            'user_id' => auth()->user()->id,
+        ]);
+        $this->reset();
+    }
+    public function NewNumber()
+    {
+        // dd($this->number);
+        DeliveryNumber::create([
+            'number_type' => $this->number_type,
+            'number' => $this->number,
+            'user_id' => auth()->user()->id,
+        ]);
+        $this->reset();
+    }
     public function RemoveAddress($id)
     {
         DeliveryAddress::destroy($id);

@@ -4,8 +4,8 @@
          address:@entangle('address'),
          schedule:@entangle('schedule'),
          number:@entangle('number'),
-         new_address:false,
-         new_phone:false,
+         new_address:@entangle('new_address'),
+         new_phone:@entangle('new_phone'),
          Payment_Method:@entangle('payment_method'),
       }" class="flex xl:max-w-screen-xl mx-auto flex-col">
          <div class="flex flex-col lg:grid lg:grid-cols-12 grid-cols-1 flex-wrap gap-8">
@@ -44,18 +44,18 @@
                                     Add Address
                                  </button>
                                  <div x-cloak x-show="new_address" class="">
-                                    <form method="POST" class="space-y-4">
+                                    <form wire:submit.prevent="NewAddress" method="POST" class="space-y-4">
                                        <div class="space-y-1.5">
                                           <label for="type_address" class="block tracking-wider">Address Type</label>
-                                          <input class="border-gray-300 w-full px-3 py-2 rounded dark:bg-transparent dark:ring-gray-700" placeholder="Home" id="type_address" type="text" name="address" required autofocus>
+                                          <input wire:model.defer="address_type" class="border-gray-300 w-full px-3 py-2 rounded dark:bg-transparent dark:ring-gray-700" placeholder="Home" id="type_address" type="text" name="address" required autofocus>
                                        </div>
                                        <div class="space-y-1.5">
                                           <label for="description" class="block tracking-wider">Address Description</label>
-                                          <textarea class="border-gray-300 w-full px-3 py-2 rounded dark:bg-transparent dark:ring-gray-700" placeholder="description" type="description" id="description"></textarea>
+                                          <textarea wire:model.defer="address" class="border-gray-300 w-full px-3 py-2 rounded dark:bg-transparent dark:ring-gray-700" placeholder="description" type="description" id="description"></textarea>
                                        </div>
                                        <div class="text-right">
-                                          <button @click="new_address = false" class="px-6 py-2 border-none border hover:bg-opacity-80">Cancel</button>
-                                          <button type="submit" class="px-6 py-2 border-none border bg-gray-700 hover:bg-opacity-80 text-white">Add Address</button>
+                                          <button @click.prevent="new_address = false" class="px-6 py-2 border-none border hover:bg-opacity-80">Cancel</button>
+                                          <button @click="new_address = false" type="submit" class="px-6 py-2 border-none border bg-gray-700 hover:bg-opacity-80 text-white">Add Address</button>
                                        </div>
                                     </form>
                                  </div>
@@ -100,18 +100,18 @@
                                              Add Phone Number
                                           </button>
                                           <div x-cloak x-show="new_phone" class="">
-                                             <form method="POST" class="space-y-4">
+                                             <form wire:submit.prevent="NewNumber" method="POST" class="space-y-4">
                                                 <div class="space-y-1.5">
                                                    <label for="type_address" class="block tracking-wider">Number Type</label>
-                                                   <input class="border-gray-300 w-full px-3 py-2 rounded dark:bg-transparent dark:ring-gray-700" placeholder="Home" id="type_address" type="text" name="address" required autofocus>
+                                                   <input wire:model.defer="number_type" class="border-gray-300 w-full px-3 py-2 rounded dark:bg-transparent dark:ring-gray-700" placeholder="Home" id="type_address" type="text" name="address" required autofocus>
                                                 </div>
                                                 <div class="space-y-1.5">
-                                                   <label for="description" class="block tracking-wider">Number Description</label>
-                                                   <textarea class="border-gray-300 w-full px-3 py-2 rounded dark:bg-transparent dark:ring-gray-700" placeholder="description" type="description" id="description"></textarea>
+                                                   <label for="description" class="block tracking-wider">Number</label>
+                                                   <input wire:model="number" type="number" class="border-gray-300 w-full px-3 py-2 rounded dark:bg-transparent dark:ring-gray-700">
                                                 </div>
                                                 <div class="text-right">
-                                                   <button @click="new_phone = false" class="px-6 py-2 border-none border hover:bg-opacity-80">Cancel</button>
-                                                   <button type="submit" class="px-6 py-2 border-none border bg-gray-700 hover:bg-opacity-80 text-white">Add Phone Number</button>
+                                                   <button @click.prevent="new_phone = false" class="px-6 py-2 border-none border hover:bg-opacity-80">Cancel</button>
+                                                   <button @click="new_phone = false" type="submit" class="px-6 py-2 border-none border bg-gray-700 hover:bg-opacity-80 text-white">Add Number</button>
                                                 </div>
                                              </form>
                                           </div>
