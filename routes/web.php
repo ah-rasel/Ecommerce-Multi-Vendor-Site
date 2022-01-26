@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminShopsController;
+use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\ProductsController as AdminProductsController;
 use App\Http\Controllers\Admin\RolesController;
@@ -41,6 +42,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::resource('/shops', AdminShopsController::class)->except('show');
             Route::resource('/products', AdminProductsController::class);
             Route::resource('/category', CategoryController::class);
+            Route::resource('/orders', OrdersController::class)->except(['create']);
         });
     });
 

@@ -54,6 +54,22 @@
                 <span class="ml-4">Shops</span>
             </a>
         </li>
+        <li class="relative px-6 py-3">
+            @if (request()->is('admin/orders') || request()->is('admin/orders/*'))
+            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true">
+            </span>
+            @endif
+            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="{{ route('admin.orders.index') }}">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-5 h-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="176" cy="416" r="16" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></circle>
+                    <circle cx="400" cy="416" r="16" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></circle>
+                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M48 80h64l48 272h256"></path>
+                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M160 288h249.44a8 8 0 007.85-6.43l28.8-144a8 8 0 00-7.85-9.57H128">
+                    </path>
+                </svg>
+                <span class="ml-4">Orders</span>
+            </a>
+        </li>
         <li class="relative px-6 py-3" @if (request()->is('admin/products') || request()->is('admin/products/*')) x-data="{isProductsMenuOpen : true}" >
             <span class="absolute inset-y-0 left-0 w-1 bg-blue-400 rounded-tr-lg rounded-br-lg" aria-hidden="true">
             </span>
@@ -79,7 +95,7 @@
                     @endif
                     ">
                         <a class="w-full" href="{{ route('admin.products.index') }}">
-                           All Products
+                            All Products
                         </a>
                     </li>
                     <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
@@ -94,7 +110,7 @@
                 </ul>
             </div>
         </li>
-        <li class="relative px-6 py-3" @if (request()->is('admin/category') || request()->is('admin/category/*')) x-data="{toggleCategoriesMenu : true}" >
+        <li class="relative px-6 py-3" @if (request()->is('admin/category') || request()->is('admin/category/*')) x-data="{isCategoriesMenuOpen : true}" >
             <span class="absolute inset-y-0 left-0 w-1 bg-blue-400 rounded-tr-lg rounded-br-lg" aria-hidden="true">
             </span>
             @else
@@ -102,8 +118,8 @@
             @endif
             <button class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 focus:outline-none " @click="toggleCategoriesMenu" aria-haspopup="true">
                 <span class="inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 28.026" fill="currentColor" class="w-5 h-5">
-                        <path d="M22.236 5.187a.836.836 0 00-.529-.568l-9.5-4.062a2.026 2.026 0 00-1.456 0l-9.5 4.062a.835.835 0 00-.529.568.925.925 0 00-.318.722v12.529a1.51 1.51 0 00.814 1.3l9.522 4.578a1.011 1.011 0 00.438.1.761.761 0 01.605 0 1.011 1.011 0 00.438-.1l9.522-4.578a1.51 1.51 0 00.814-1.3V5.909a.925.925 0 00-.321-.722zM11.184 1.576a.969.969 0 01.586 0l8.889 3.8-8.922 4.29a.78.78 0 01-.52 0L2.294 5.375zM1.69 5.087h-.005 0zm0 13.654a.432.432 0 01-.187-.3V6.231l9.229 4.438a.432.432 0 01.187.3v12.21zm9.282 5.076zm1 0zm9.469-5.38a.432.432 0 01-.187.3l-9.229 4.437v-12.21a.431.431 0 01.187-.3l9.229-4.438z" stroke="currentColor" stroke-width=".8"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                     </svg>
                     <span class="ml-4">Categories</span>
                 </span>
@@ -119,7 +135,7 @@
                     @endif
                     ">
                         <a class="w-full" href="{{ route('admin.category.index') }}">
-                           All Categories
+                            All Categories
                         </a>
                     </li>
                     <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
