@@ -15,7 +15,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $var = "product - " . $this->faker->name(),
+            'name' => $var = "product - " . $this->faker->randomNumber(4),
             'slug' => Str::slug($var),
             'description' => $this->faker->text(200),
             'sku' => $this->faker->text(5),
@@ -23,7 +23,7 @@ class ProductFactory extends Factory
             'current_price' => $this->faker->numberBetween(100, 500),
             'regular_price' => $this->faker->numberBetween(100, 500),
             'category_id' => $this->faker->numberBetween(1, 10),
-            'shop_id' => $this->faker->numberBetween(1, 20),
+            'shop_id' => $this->faker->numberBetween(1, 8),
             'image' => 'products/' . $this->faker->numberBetween(1, 9) . '.png',
         ];
     }

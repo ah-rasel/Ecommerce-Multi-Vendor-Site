@@ -14,7 +14,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 xl:gap-7 xl:-mt-1.5 2xl:mt-0">
             <!-- Single Product -->
             @foreach ($products as $product )
-            <div role="button" @click="$dispatch('modal', {productId:'{{ $product->id }}',productName:'{{ $product->name }}', img: '/images/{{ $product->image }}',product_modal:true,link:'{{ route('product.show',$product->slug) }}',productDescription:'{{ $product->description }}',productCurrentPrice:'{{ $product->price }}',productRegularPrice:'{{ $product->price }}' }),productQuantity=1" class="box-border flex flex-row items-center pr-2 overflow-hidden transition-transform ease-linear bg-gray-200 rounded-md cursor-pointer group dark:bg-gray-800 dark:border dark:border-gray-600 lg:pr-3 2xl:pr-4" title="Maniac Red Boys">
+            <div role="button" @click="$dispatch('modal', {productId:'{{ $product->id }}',productName:'{{ $product->name }}', img: '/images/{{ $product->image }}',product_modal:true,link:'{{ route('product.show',$product->slug) }}',productDescription:'{{ $product->description }}',productCurrentPrice:'{{ $product->current_price }}',productRegularPrice:'{{ $product->regular_price }}' }),productQuantity=1" class="box-border flex flex-row items-center pr-2 overflow-hidden transition-transform ease-linear bg-gray-200 rounded-md cursor-pointer group dark:bg-gray-800 dark:border dark:border-gray-600 lg:pr-3 2xl:pr-4" title="Maniac Red Boys">
                 <div class="flex flex-shrink-0 w-32 sm:w-44 md:w-40 lg:w-52 2xl:w-56 3xl:w-64">
                     <span class="box-border relative inline-block max-w-full overflow-hidden">
                         <span class="box-border block max-w-full">
@@ -31,8 +31,8 @@
                         {{ $product->description }}
                     </p>
                     <div class="text-heading font-semibold text-sm mt-1.5 space-x-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3">
-                        <span class="inline-block">${{ $product->price }}</span>
-                        <del class="font-normal text-gray-800 sm:text-base dark:text-gray-400">${{ $product->price }}</del>
+                        <span class="inline-block">${{ $product->current_price }}</span>
+                        <del class="font-normal text-gray-800 sm:text-base dark:text-gray-400">${{ $product->regular_price }}</del>
                     </div>
                 </div>
             </div>

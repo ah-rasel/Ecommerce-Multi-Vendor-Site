@@ -1,7 +1,7 @@
 @props([
 'product'=>false,
 ])
-<div {{ $attributes }} role="button" @click="$dispatch('modal', {productId:'{{ $product->id }}',productName:'{{ $product->name }}', img: '/images/{{ $product->image }}',product_modal:true,link:'{{ route('product.show',$product->slug) }}',productDescription:'{{ $product->description }}',productCurrentPrice:'{{ $product->price }}',productRegularPrice:'{{ $product->price }}' }),productQuantity=1" 
+<div {{ $attributes }} role="button" @click="$dispatch('modal', {productId:'{{ $product->id }}',productName:'{{ $product->name }}', img: '/images/{{ $product->image }}',product_modal:true,link:'{{ route('product.show',$product->slug) }}',productDescription:'{{ $product->description }}',productCurrentPrice:'{{ $product->current_price }}',productRegularPrice:'{{ $product->regular_price }}' }),productQuantity=1" 
 
 class="group box-border overflow-hidden flex rounded-md cursor-pointer pr-0 pb-2 lg:pb-3 flex-col items-start bg-white dark:bg-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-md" role="button" title="Nike Black">
     <div class="flex mb-3 md:mb-3.5">
