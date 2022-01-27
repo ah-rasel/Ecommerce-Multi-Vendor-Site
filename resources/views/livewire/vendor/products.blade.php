@@ -84,7 +84,7 @@
                                     </path>
                                 </svg>
                             </a>
-                            <a class="text-base transition duration-200 hover:text-heading" title="Edit" href="#">
+                            <a class="text-base transition duration-200 hover:text-heading" title="Edit" href="{{ route('vendor.products.edit',$product->id) }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.547 20.299" fill="currentColor" width="16">
                                     <g stroke="currentColor" stroke-width=".4">
                                         <path data-name="Path 78" d="M18.659 12.688a.5.5 0 00-.5.5v4.423a1.5 1.5 0 01-1.494 1.494H2.691A1.5 1.5 0 011.2 17.609V4.629a1.5 1.5 0 011.494-1.494h4.419a.5.5 0 100-1H2.691A2.493 2.493 0 00.2 4.629v12.98A2.493 2.493 0 002.691 20.1h13.976a2.493 2.493 0 002.491-2.491v-4.423a.5.5 0 00-.5-.5zm0 0">
