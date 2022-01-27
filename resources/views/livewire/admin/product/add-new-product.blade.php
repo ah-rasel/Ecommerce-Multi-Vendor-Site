@@ -1,17 +1,14 @@
 <div class="px-4 mt-2">
     <div class="text-3xl font-semibold text-gray-600 dark:text-slate-500">Add Product</div>
     <div class="py-6 mt-3 px-4 bg-white dark:bg-gray-800 rounded shadow">
-        <form wire:submit.prevent="AddPost">
+        <form wire:submit.prevent="AddProduct">
             <div class="grid grid-cols-3 gap-x-2">
                 <div class="col-span-1" class="overflow-hidden">
                     <div class="border border-slate-200 dark:border-slate-600 p-5 rounded">
                         <div class="relative">
-                            <img src="{{ asset('product-placeholder.jpg') }}" class="w-full rounded shadow-sm" alt="">
-                            <button class="absolute h-12 w-12 bg-white text-gray-500 flex items-center justify-center rounded-md shadow dark:shadow-slate-400  right-2 top-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                </svg>
-                            </button>
+                            <img src="{{ $image?->temporaryUrl()??(asset('product-placeholder.jpg')) }}" class="w-full rounded shadow-sm" alt="">
+                            <input wire:model="image" type="file" class="mt-4 block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 cursor-pointer file:rounded-full file:border-0 file:text-sm file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 " />
+
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-4 p-5">

@@ -19,6 +19,7 @@ class Product extends Model
         'quantity',
         'category_id',
         'shop_id',
+        'image',
     ];
     public function getRouteKeyName()
     {
@@ -26,6 +27,10 @@ class Product extends Model
     }
     public function category()
     {
-        return $this->belongsTo(Category::class,);
+        return $this->belongsTo(Category::class);
+    }
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class);
     }
 }

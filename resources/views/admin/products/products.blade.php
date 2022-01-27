@@ -36,7 +36,7 @@
                 {{ $product->category->name }}
             </x-table.cell>
             <x-table.cell>
-                Abcd Shop
+                {{ $product->shop->name }}
             </x-table.cell>
             <x-table.cell>
                 ${{ $product->current_price }}

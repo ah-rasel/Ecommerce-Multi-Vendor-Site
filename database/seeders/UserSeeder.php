@@ -45,6 +45,19 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
         ];
+        $shops = [
+            [
+                'name' => $var = 'Main Shop',
+                'slug' => Str::slug($var),
+                'tag_line' => "A perfect place to get your product",
+                'logo' => 'shops/17.png',
+                'address' => "Uttara Sector 10",
+                'banner' => 'shops/shop-banner-1.jpg',
+                'phone' => "01303132018",
+                'user_id' => 1,
+            ],
+        ];
         DB::table('users')->insert($users);
+        DB::table('shops')->insert($shops);
     }
 }

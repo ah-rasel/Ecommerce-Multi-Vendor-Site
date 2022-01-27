@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('image')->nullable();
             $table->string('gallary')->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->foreignId('shop_id')->constrained()->onDelete('cascade');
+            $table->foreignId('shop_id')->constrained()->onDelete('cascade')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

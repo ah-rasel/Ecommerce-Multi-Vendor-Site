@@ -5,9 +5,11 @@ namespace App\Http\Livewire\Admin\Product;
 use App\Models\Product;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
 
 class AddNewProduct extends Component
 {
+    use WithFileUploads;
     public $name;
     public $slug;
     public $category;
@@ -16,6 +18,7 @@ class AddNewProduct extends Component
     public $quantity;
     public $sku = NULL;
     public $short_description;
+    public $image;
 
     protected $rules = [
         'name' => 'required',
@@ -29,10 +32,11 @@ class AddNewProduct extends Component
     {
         $this->slug = Str::slug($this->name);
     }
-    public function AddPost()
+    public function AddProduct()
     {
         // dd($this->quantity);
         $this->validate();
+        $imageName = $this->image->store('/', 'images');
         $product = Product::create([
             'name' => $this->name,
             'slug' => $this->slug,
@@ -41,7 +45,8 @@ class AddNewProduct extends Component
             'current_price' => $this->current_price,
             'regular_price' => $this->regular_price,
             'quantity' => $this->quantity,
-            'image' => $this->current_price,
+            'image' => $imageName,
+            'shop_id' => 1,
             'category_id' => 3,
         ]);
         return redirect()->route('admin.products.index');
