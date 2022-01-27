@@ -54,7 +54,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 
     // Vendor
-    Route::prefix('vendor')->name('vendor.')->group(function () {
+    Route::middleware(['vendor'])->prefix('vendor')->name('vendor.')->group(function () {
         Route::get('/dashboard', VendorDashboard::class)->name('dashboard');
         Route::get('/products', VendorProducts::class)->name('products');
         Route::get('/orders', VendorOrders::class)->name('orders');
