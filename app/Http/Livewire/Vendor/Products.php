@@ -10,8 +10,8 @@ class Products extends Component
 {
     public function mount()
     {
-    //     $products = Shop::with('products')->where('user_id', auth()->user()->id)->first();
-    //     dd($products);
+        //     $products = Shop::with('products')->where('user_id', auth()->user()->id)->first();
+        //     dd($products);
     }
     public function Delete($id)
     {
@@ -20,7 +20,9 @@ class Products extends Component
     public function render()
     {
         return view('livewire.vendor.products', [
-            'shop' => Shop::with('products.category')->where('user_id', auth()->user()->id)->firstOrFail(),
+            'shop' => Shop::with('products.category')
+                ->where('user_id', auth()->user()->id)
+                ->firstOrFail(),
         ])
             ->extends('vendor.index')
             ->section('vendor');

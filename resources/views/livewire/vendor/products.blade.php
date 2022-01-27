@@ -3,7 +3,7 @@
         <h2 class="text-lg md:text-xl xl:text-2xl font-bold">
             Products
         </h2>
-        <a href="#" class="text-slate-600 hover:bg-slate-100 flex items-center justify-center px-3 rounded-md border">
+        <a href="{{ route('vendor.products.create') }}" class="text-slate-600 hover:bg-slate-100 flex items-center justify-center px-3 rounded-md border">
             Add New Product
         </a>
     </div>

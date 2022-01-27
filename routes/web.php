@@ -16,6 +16,7 @@ use App\Http\Livewire\Checkout;
 use App\Http\Livewire\Shop;
 use App\Http\Livewire\User\Dashboard;
 use App\Http\Livewire\Vendor\Dashboard as VendorDashboard;
+use App\Http\Livewire\Vendor\NewProduct;
 use App\Http\Livewire\Vendor\Orders as VendorOrders;
 use App\Http\Livewire\Vendor\Products as VendorProducts;
 use App\Http\Livewire\Vendor\Profile;
@@ -57,6 +58,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::middleware(['vendor'])->prefix('vendor')->name('vendor.')->group(function () {
         Route::get('/dashboard', VendorDashboard::class)->name('dashboard');
         Route::get('/products', VendorProducts::class)->name('products');
+        Route::get('/products/new', NewProduct::class)->name('products.create');
         Route::get('/orders', VendorOrders::class)->name('orders');
         Route::get('/profile', Profile::class)->name('profile');
         Route::get('/settings', VendorSettings::class)->name('settings');

@@ -58,11 +58,11 @@
                                         </a>
                                     </li>
                                     <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
-                                        @if (url()->current() == route('admin.products.create'))
+                                        @if (url()->current() == route('vendor.products.create'))
                                         bg-white dark:bg-gray-800 border-l-2 border-fuchsia-700
                                         @endif
                                         ">
-                                        <a class="w-full" href="{{ route('admin.products.create') }}">
+                                        <a class="w-full" href="{{ route('vendor.products.create') }}">
                                             Add New Product
                                         </a>
                                     </li>

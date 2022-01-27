@@ -18,6 +18,7 @@ class Product extends Model
         'regular_price',
         'quantity',
         'category_id',
+        'shop_id',
     ];
     public function getRouteKeyName()
     {
