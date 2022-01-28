@@ -1,6 +1,6 @@
 @props([
-   'sliders',
-    ])
+'sliders',
+])
 
 <div class="swiper home-slider group">
     <div class="swiper-wrapper">
@@ -10,9 +10,11 @@
             <div class="h-[40vh] md:h-[69vh] flex justify-start items-center">
                 <div class="ml-5 md:ml-40 space-y-1.5 md:space-y-4 text-gray-800">
                     <h4 class="text-sm md:tracking-[5.2px] md:text-lg md:font-bold text-center">
-                        {{ $slider['main'] }}</h4>
+                        {{ $slider['main'] }}
+                    </h4>
                     <h1 class="text-2xl font-extrabold uppercase md:text-6xl md:font-bold">
-                    {{ $slider['tag'] }}</h1>
+                        {{ $slider['tag'] }}
+                    </h1>
                     <div class="flex items-center justify-center">
                         <a href="{{ route('shop') }}" class="font-normal px-2 pb-0.5 md:px-5 md:py-2 bg-blue-500 text-sm md:text-base md:font-bold text-white hover:bg-white hover:text-blue-500 border-2 border-blue-500 border-opacity-0 hover:border-opacity-100 transition-all duration-100">
                             Shop now

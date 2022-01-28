@@ -13,6 +13,7 @@ use App\Http\Controllers\ShopsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Vendor\VendorController;
 use App\Http\Livewire\Admin\NewVendorRequest;
+use App\Http\Livewire\Admin\Settings;
 use App\Http\Livewire\Checkout;
 use App\Http\Livewire\Shop;
 use App\Http\Livewire\User\Dashboard;
@@ -47,6 +48,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::resource('/products', AdminProductsController::class);
             Route::resource('/category', CategoryController::class);
             Route::resource('/orders', OrdersController::class)->except(['create']);
+            Route::get('/settings', Settings::class)->name('settings');
         });
     });
 
