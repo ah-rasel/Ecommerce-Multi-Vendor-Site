@@ -15,6 +15,9 @@ class Shop extends Model
         'banner',
         'phone',
         'user_id',
+        'tag_line',
+        'address',
+        'email',
     ];
     public function getRouteKeyName()
     {
@@ -31,8 +34,9 @@ class Shop extends Model
     public function getShopStatusAttribute()
     {
         return [
-            0=>'In Review',
-            1=>'Active',
+            0 => 'In Review',
+            1 => 'Active',
+            2 => 'Banned',
         ][$this->status];
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminShopsController;
+use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\ProductsController as AdminProductsController;
 use App\Http\Controllers\Admin\RolesController;
@@ -15,6 +16,8 @@ use App\Http\Livewire\Checkout;
 use App\Http\Livewire\Shop;
 use App\Http\Livewire\User\Dashboard;
 use App\Http\Livewire\Vendor\Dashboard as VendorDashboard;
+use App\Http\Livewire\Vendor\EditProduct;
+use App\Http\Livewire\Vendor\NewProduct;
 use App\Http\Livewire\Vendor\Orders as VendorOrders;
 use App\Http\Livewire\Vendor\Products as VendorProducts;
 use App\Http\Livewire\Vendor\Profile;
@@ -41,6 +44,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::resource('/shops', AdminShopsController::class)->except('show');
             Route::resource('/products', AdminProductsController::class);
             Route::resource('/category', CategoryController::class);
+            Route::resource('/orders', OrdersController::class)->except(['create']);
         });
     });
 
@@ -52,9 +56,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 
     // Vendor
-    Route::prefix('vendor')->name('vendor.')->group(function () {
+    Route::middleware(['vendor'])->prefix('vendor')->name('vendor.')->group(function () {
         Route::get('/dashboard', VendorDashboard::class)->name('dashboard');
         Route::get('/products', VendorProducts::class)->name('products');
+        Route::get('/products/new', NewProduct::class)->name('products.create');
+        Route::get('/products/{id}/edit', EditProduct::class)->name('products.edit');
         Route::get('/orders', VendorOrders::class)->name('orders');
         Route::get('/profile', Profile::class)->name('profile');
         Route::get('/settings', VendorSettings::class)->name('settings');

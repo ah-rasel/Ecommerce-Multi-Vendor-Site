@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\Order;
+use App\Models\OrderProducts;
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['category','shop'])->get();
-        return view('admin.products.products',compact('products'));
+        $orders = Order::with(['products'])->orderBy('id', 'DESC')->get();
+        return view('admin.orders.orders', compact('orders'));
     }
 
     /**
@@ -26,7 +27,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create_product');
+        //
     }
 
     /**
@@ -46,9 +47,13 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        $products = OrderProducts::with(['product'])
+            ->where('order_id', $order->id)
+            ->get();
+        // dd($products);
+        return view('admin.orders.single_order', compact('products', 'order'));
     }
 
     /**
@@ -59,7 +64,6 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -80,9 +84,9 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Order $order)
     {
-       $product->delete();
-       return redirect()->route('admin.products.index');
+        $order->delete();
+        return redirect()->back();
     }
 }

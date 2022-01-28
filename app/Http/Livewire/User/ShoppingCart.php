@@ -12,7 +12,7 @@ class ShoppingCart extends Component
     public function AddToCart($id, $quantity)
     {
         $product = Product::findOrFail($id);
-        Cart::add($product->id, $product->name, $quantity, $product->price, 500, [
+        Cart::add($product->id, $product->name, $quantity, $product->current_price, 500, [
             'image' => $product->image,
             'slug' => $product->slug,
         ]);

@@ -1,65 +1,51 @@
 @extends('layouts.admin')
 @section('admin_contents')
 <x-global.title>
-    Products
-    <span class="font-normal text-base ml-6">
-        <x-table.add_item_button href="{{ route('admin.products.create') }}">
-            Add new Product
-        </x-table.add_item_button>
-    </span>
+    Orders
 </x-global.title>
 <x-table.table_index>
     <x-slot name="head">
-        <x-table.heading> Image </x-table.heading>
-        <x-table.heading> Name </x-table.heading>
-        <x-table.heading> Category </x-table.heading>
-        <x-table.heading> Shop </x-table.heading>
-        <x-table.heading> Price/Unit </x-table.heading>
-        <x-table.heading> Quantity </x-table.heading>
+        <x-table.heading> # </x-table.heading>
+        <x-table.heading> Order Number </x-table.heading>
+        <x-table.heading> Date </x-table.heading>
         <x-table.heading> Status </x-table.heading>
+        <x-table.heading> Payment Method </x-table.heading>
+        <x-table.heading> Total </x-table.heading>
         <x-table.heading> Actions </x-table.heading>
     </x-slot>
     <x-slot name="body">
-        @foreach ($products as $product)
+        @foreach ($orders as $order)
+
         <x-table.row>
             <x-table.cell>
-                <div class="w-10 h-10 box-border inline-block overflow-hidden rounded-sm">
-                    <img src="{{ asset('images') }}/{{ $product->image }}" alt="">
-                </div>
+               {{ $loop->iteration }}
             </x-table.cell>
             <x-table.cell>
-                <a href="{{ route('product.show',$product->slug) }}" class="hover:underline">
-                    {{ $product->name }}
-                </a>
+                <a href="#">#{{ $order->id }}</a>
             </x-table.cell>
             <x-table.cell>
-                {{ $product->category->name }}
+                {{ $order->order_date }}
             </x-table.cell>
             <x-table.cell>
-                {{ $product->shop->name }}
+                {{ $order->order_status }}
             </x-table.cell>
             <x-table.cell>
-                ${{ $product->current_price }}
-                <span class="line-through text-slate-500 text-sm">${{ $product->regular_price }}</span>
+                {{ $order->payment }}
             </x-table.cell>
             <x-table.cell>
-                {{ $product->quantity }}
-            </x-table.cell>
-            <x-table.cell>
-                <x-global.badge>Active</x-global.badge>
+                {{ $order->amount }}
             </x-table.cell>
             <x-table.cell>
                 <div class="flex space-x-2 md:space-x-4">
                     <div class="">
-                        <a href="{{ route('product.show',$product->slug) }}">
+                        <a href="{{ route('admin.orders.show',$order) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </a>
                     </div>
-                    <x-table.button.action href="#" edit></x-table.button.action>
-                    <form action="{{ route('admin.products.destroy',$product) }}" onsubmit="return confirm('Are you sure to delete this Product ?');" method="POST">
+                    <form action="{{ route('admin.orders.destroy',$order) }}" onsubmit="return confirm('Are you sure to delete this Order ?');" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-warning" type="submit">

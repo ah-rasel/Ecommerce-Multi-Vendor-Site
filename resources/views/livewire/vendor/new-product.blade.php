@@ -1,7 +1,8 @@
-<div class="px-4 mt-2">
-    <div class="text-3xl font-semibold text-gray-600 dark:text-slate-500">Add Product</div>
+<div class="px-6 pt-2 pb-4 mt-2 border bg-slate-100">
+    <div class="text-2xl font-semibold text-gray-600 dark:text-slate-500">Add new Product</div>
     <div class="py-6 mt-3 px-4 bg-white dark:bg-gray-800 rounded shadow">
-        <form wire:submit.prevent="AddProduct">
+        <form wire:submit.prevent="AddProduct" enctype="multipart/form-data">
+            @csrf
             <div class="grid grid-cols-3 gap-x-2">
                 <div class="col-span-1" class="overflow-hidden">
                     <div class="border border-slate-200 dark:border-slate-600 p-5 rounded">
@@ -13,7 +14,7 @@
                     </div>
                     <div class="grid grid-cols-3 gap-4 p-5">
                         @foreach ($boxes=[0,1,2,3,4,5] as $box)
-                        <div class="h-28 overflow-hidden border border-slate-200 dark:border-slate-600 rounded-lg">
+                        <div class="h-14 overflow-hidden border border-slate-200 dark:border-slate-600 rounded-lg">
                             <div class="p-1 relative">
                                 <img class="object-cover rounded-lg" src="{{ asset('product-placeholder.jpg') }}" alt="">
                                 <button class="absolute h-6 w-6 bg-white text-gray-500 flex items-center justify-center rounded-md shadow dark:shadow-slate-400 right-2 top-2">
@@ -29,29 +30,29 @@
                 <div class="col-span-2">
                     <div class="px-4 space-y-4">
                         <div class="space-y-2">
-                            <label for="name" class="uppercase text-slate-500 dark:text-slate-400 text-sm tracking-wider font-semibold">Product Name</label>
+                            <label for="name" class="uppercase text-slate-500 dark:text-slate-400 text-xs tracking-wider font-semibold">Product Name</label>
                             <input wire:model="name" type="text" name="" id="name" class="block w-full px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-2xl text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-gray-200 focus:ring-0 focus:ring-gray-200 text-slate-600 dark:text-slate-300 bg-transparent">
                             @error('name')
                             <span class="ml-4 text-xs font-semibold text-red-500">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="space-y-2">
-                            <label for="slug" class="uppercase text-slate-500 dark:text-slate-400 text-sm tracking-wider font-semibold">Slug</label>
+                            <label for="slug" class="uppercase text-slate-500 dark:text-slate-400 text-xs tracking-wider font-semibold">Slug</label>
                             <input wire:model="slug" type="text" name="" id="slug" class="!-mt-2 block w-full px-3 py-2.5 border-0 border-gray-200 dark:border-gray-600 rounded-2xl text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-gray-200 focus:ring-0 focus:ring-gray-200 text-slate-600 dark:text-slate-300 bg-transparent" disabled>
                             @error('slug')
                             <span class="ml-4 text-xs font-semibold text-red-500">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="space-y-2">
-                            <label for="short_description" class="uppercase text-slate-500 dark:text-slate-400 text-sm tracking-wider font-semibold">Short Description</label>
-                            <textarea wire:model.defer="short_description" class="block w-full px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-2xl text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-gray-200 focus:ring-0 focus:ring-gray-200 text-slate-600 dark:text-slate-300 bg-transparent" name="" id="short_description" cols="30" rows="7"></textarea>
+                            <label for="short_description" class="uppercase text-slate-500 dark:text-slate-400 text-xs tracking-wider font-semibold">Short Description</label>
+                            <textarea wire:model.lazy="short_description" class="block w-full px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-2xl text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-gray-200 focus:ring-0 focus:ring-gray-200 text-slate-600 dark:text-slate-300 bg-transparent" name="" id="short_description" cols="30" rows="7"></textarea>
                             @error('short_description')
                             <span class="ml-4 text-xs font-semibold text-red-500">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="flex space-x-4">
                             <div class="space-y-3 w-full">
-                                <div class="uppercase text-slate-500 dark:text-slate-400 text-sm tracking-wider font-semibold">Colors</div>
+                                <div class="uppercase text-slate-500 dark:text-slate-400 text-xs tracking-wider font-semibold">Colors</div>
                                 <div class="flex space-x-2">
                                     <li class="cursor-pointer rounded border border-gray-100 w-9 md:w-11 h-9 md:h-11 p-1 mb-2 md:mb-3 mr-2 md:mr-3 flex justify-center items-center  text-xs md:text-sm uppercase font-semibold transition duration-200 ease-in-out hover:border-black dark:border-gray-600 dark:hover:border-gray-500">
                                         <span class="h-full w-full rounded block" style="background-color: rgb(232, 108, 37);"></span>
@@ -59,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="space-y-3 w-full">
-                                <div class="uppercase text-slate-500 dark:text-slate-400 text-sm tracking-wider font-semibold">Size</div>
+                                <div class="uppercase text-slate-500 dark:text-slate-400 text-xs tracking-wider font-semibold">Size</div>
                                 <div class="flex space-x-2">
                                     <label class="group relative border dark:border-gray-600 rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 bg-white dark:bg-gray-800 shadow-sm text-gray-900 dark:text-gray-300 cursor-pointer undefined">
                                         <input type="radio" name="size-choice" value="XXL" class="sr-only" aria-labelledby="size-choice-0-label">
@@ -101,21 +102,21 @@
                         </div>
                         <div class="flex space-x-4">
                             <div class="space-y-2 w-full">
-                                <label for="current_price" class="uppercase text-slate-500 dark:text-slate-400 text-sm tracking-wider font-semibold">Current Price/Unit</label>
+                                <label for="current_price" class="uppercase text-slate-500 dark:text-slate-400 text-xs tracking-wider font-semibold">Current Price</label>
                                 <input wire:model.defer="current_price" type="number" min="1" name="" id="current_price" class="block w-full px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-2xl text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-gray-200 focus:ring-0 focus:ring-gray-200 text-slate-600 dark:text-slate-300 bg-transparent">
                                 @error('current_price')
                                 <span class="ml-4 text-xs font-semibold text-red-500">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="space-y-2 w-full">
-                                <label for="regular_price" class="uppercase text-slate-500 dark:text-slate-400 text-sm tracking-wider font-semibold">Price/Unit</label>
+                                <label for="regular_price" class="uppercase text-slate-500 dark:text-slate-400 text-xs tracking-wider font-semibold">Regular Price</label>
                                 <input wire:model.defer="regular_price" type="number" min="1" name="" id="regular_price" class="block w-full px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-2xl text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-gray-200 focus:ring-0 focus:ring-gray-200 text-slate-600 dark:text-slate-300 bg-transparent">
                                 @error('regular_price')
                                 <span class="ml-4 text-xs font-semibold text-red-500">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="space-y-2 w-full">
-                                <label for="quantity" class="uppercase text-slate-500 dark:text-slate-400 text-sm tracking-wider font-semibold">Quantity</label>
+                                <label for="quantity" class="uppercase text-slate-500 dark:text-slate-400 text-xs tracking-wider font-semibold">Quantity</label>
                                 <input wire:model.defer="quantity" type="number" min="1" name="" id="quantity" class="block w-full px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-2xl text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-gray-200 focus:ring-0 focus:ring-gray-200 text-slate-600 dark:text-slate-300 bg-transparent">
                                 @error('quantity')
                                 <span class="ml-4 text-xs font-semibold text-red-500">{{ $message }}</span>

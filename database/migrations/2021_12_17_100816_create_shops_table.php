@@ -17,11 +17,12 @@ class CreateShopsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('tag_line');
-            $table->string('address');
+            $table->string('tag_line')->nullable();
+            $table->string('address')->nullable();
             $table->string('logo')->nullable();
             $table->string('banner')->nullable();
             $table->string('phone', 20)->nullable();
+            $table->string('email')->nullable();
             $table->boolean('status')->default(0);
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

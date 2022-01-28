@@ -13,7 +13,7 @@
                     @foreach ($products as $product)
                     <!-- Slide -->
                     <div class="swiper-slide">
-                        <div role="button" @click="$dispatch('modal', {productId:'{{ $product->id }}',productName:'{{ $product->name }}', img: '/images/{{ $product->image }}',product_modal:true,link:'{{ route('product.show',$product->slug) }}',productDescription:'{{ $product->description }}',productCurrentPrice:'{{ $product->price }}',productRegularPrice:'{{ $product->price }}' }),productQuantity=1" class="flex flex-col justify-between h-full">
+                        <div role="button" @click="$dispatch('modal', {productId:'{{ $product->id }}',productName:'{{ $product->name }}', img: '/images/{{ $product->image }}',product_modal:true,link:'{{ route('product.show',$product->slug) }}',productDescription:'{{ $product->description }}',productCurrentPrice:'{{ $product->current_price }}',productRegularPrice:'{{ $product->regular_price }}' }),productQuantity=1" class="flex flex-col justify-between h-full">
                             <div class="mb-5 sm:mb-7 lg:mb-8 2xl:mb-10 3xl:mb-12">
                                 <div class="box-border flex flex-col items-start pb-0 overflow-hidden rounded-md cursor-pointer group" title="Adidas Shoes Black">
                                     <div class="flex mb-3 md:mb-3.5 pb-0">
@@ -32,8 +32,8 @@
                                             {{ $product->description }}
                                         </p>
                                         <div class="text-heading font-semibold text-sm mt-1.5 space-x-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3">
-                                            <span class="inline-block">${{ $product->price }}</span>
-                                            <del class="font-normal text-gray-800 sm:text-base dark:text-gray-400">${{ $product->price }}</del>
+                                            <span class="inline-block">${{ $product->current_price }}</span>
+                                            <del class="font-normal text-gray-800 sm:text-base dark:text-gray-400">${{ $product->regular_price }}</del>
                                         </div>
                                     </div>
                                 </div>

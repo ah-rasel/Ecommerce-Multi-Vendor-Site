@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-[1920px] px-4 md:px-8 2xl:px-16">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5 md:gap-9 xl:gap-5 pb-9 md:pb-14 lg:pb-16 2xl:pb-20 lg:mb-0.5 2xl:mb-0">
             <div class="col-span-2 pb-3 mt-3 space-y-4 md:px-4 md:pb-0">
-                <img class="object-cover mx-auto w-44 md:ml-0" src="http://themes.pixelstrap.com/multikart/assets/images/icon/logo.png" alt="By Md Rasel">
+                <img class="object-cover mx-auto w-44 md:ml-0" src="http://themes.pisxelstrap.com/multikart/assets/images/icon/logo.png" alt="Logo of the site">
                 <p class="text-justify text-gray-500 dark:text-gray-300">Lorem ipsum dolor sit
                     amet consectetur
                     adipisicing elit. Dicta quia magni iste nemo adipisci itaque ipsa ab

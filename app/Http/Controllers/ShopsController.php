@@ -15,7 +15,7 @@ class ShopsController extends Controller
      */
     public function index()
     {
-        $shops = Shop::all();
+        $shops = Shop::where('status','1')->get();
         return view('user.shops', compact('shops'));
     }
 

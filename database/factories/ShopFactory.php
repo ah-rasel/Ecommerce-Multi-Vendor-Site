@@ -15,13 +15,14 @@ class ShopFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $var = "Shop - " . $this->faker->name(),
+            'name' => $var = "Shop - " . $this->faker->numberBetween(3),
             'slug' => Str::slug($var),
             'tag_line' => $this->faker->text(50),
             'logo' => 'shops/17.png',
             'address' => $this->faker->address(),
             'banner' => 'shops/shop-banner-1.jpg',
             'phone' => $this->faker->phoneNumber(),
+            'email' => $this->faker->safeEmail(),
             'user_id' => rand(1,3),
         ];
     }
