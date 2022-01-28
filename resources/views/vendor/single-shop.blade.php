@@ -74,6 +74,15 @@
                                 </div>
                             </div>
                             <div class="block">
+                                <h4 class="font-semibold text-sm mb-1.5">Email:
+                                </h4>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm leading-7 sm:leading-6">
+                                        {{$shop->email}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="block">
                                 <h4 class="font-semibold text-sm mb-1.5">Ratings:
                                 </h4>
                                 <p class="text-sm leading-7 sm:leading-6">5.00 rating

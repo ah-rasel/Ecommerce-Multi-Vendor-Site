@@ -22,6 +22,7 @@ class ShopFactory extends Factory
             'address' => $this->faker->address(),
             'banner' => 'shops/shop-banner-1.jpg',
             'phone' => $this->faker->phoneNumber(),
+            'email' => $this->faker->safeEmail(),
             'user_id' => rand(1,3),
         ];
     }
