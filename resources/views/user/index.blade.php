@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('contents')
 <!-- Top Slider -->
-<x-home.slider.main></x-home.slider.main>
+<x-home.slider.main />
 <div class="px-2 mt-8 space-y-8">
     <!-- Services Slider -->
-    <x-home.slider.services></x-home.slider.services>
+    {{-- <x-home.slider.services></x-home.slider.services> --}}
+    <x-home.services/>
     <!-- Top Products & Flash Sale -->
     <x-home.top-products :products="$top_products" :flash-sale-products="$flash_sale_products"></x-home.top-products>
     <!-- Featured Categories -->
