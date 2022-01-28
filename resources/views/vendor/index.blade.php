@@ -5,14 +5,7 @@
         <div class="py-8 lg:py-10 px-0 xl:max-w-screen-xl mx-auto flex md:flex-row w-full">
             <div class="flex flex-col md:flex-row w-full">
                 <nav class="flex flex-col md:w-2/6 2xl:w-4/12 pb-2 md:pb-0 bg-gray-100 dark:bg-gray-800 rounded md:mr-16 pt-6">
-                    <div class="mx-auto w-full">
-                        <img class="mx-auto w-32 h-32" src="{{ asset('images/shops/17.png') }}" alt="Shop Logo">
-                        <div class="space-y-1">
-                            <h3 class="text-center font-bold">Fashion Store </h3>
-                            <p class="text-center">750 products | 10 orders</p>
-                            <p class="text-center">rasel@myshop.com</p>
-                        </div>
-                    </div>
+                   <livewire:vendor.shop-details/>
                     <a class="hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center cursor-pointer text-sm lg:text-base py-3.5 px-4 lg:px-5 mb-2 {{ (url()->current() == route('vendor.dashboard'))? 'border-r-2 border-fuchsia-700 font-semibold':'' }} " href="{{ route('vendor.dashboard') }}">
                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-5 h-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                             <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M80 212v236a16 16 0 0016 16h96V328a24 24 0 0124-24h80a24 24 0 0124 24v136h96a16 16 0 0016-16V212">
