@@ -39,4 +39,12 @@ class Shop extends Model
             2 => 'Banned',
         ][$this->status];
     }
+    public function getStatusColorAttribute()
+    {
+        return [
+            0 => 'text-green-800 bg-green-100',
+            1 => 'text-green-800 bg-green-400',
+            2 => 'bg-red-600 text-white',
+        ][$this->status];
+    }
 }

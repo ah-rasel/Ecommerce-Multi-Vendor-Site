@@ -15,8 +15,7 @@ class AdminShopsController extends Controller
      */
     public function index()
     {
-        $shops = Shop::with('user')->withCount('products')->get();
-        return view('admin.shops',compact('shops'));
+        return view('admin.shops');
     }
 
     /**
