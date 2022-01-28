@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ShopsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Vendor\VendorController;
+use App\Http\Livewire\Admin\NewVendorRequest;
 use App\Http\Livewire\Checkout;
 use App\Http\Livewire\Shop;
 use App\Http\Livewire\User\Dashboard;
@@ -42,6 +43,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::resource('role', RolesController::class);
             Route::resource('permission', PermissionsController::class)->only(['index']);
             Route::resource('/shops', AdminShopsController::class)->except('show');
+            Route::get('/requests/shops', NewVendorRequest::class)->name('new.shops');
             Route::resource('/products', AdminProductsController::class);
             Route::resource('/category', CategoryController::class);
             Route::resource('/orders', OrdersController::class)->except(['create']);

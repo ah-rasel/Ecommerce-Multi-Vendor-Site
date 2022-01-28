@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +18,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-       return view('admin.dashboard');
+        $total_orders = Order::count();
+        $order_sum = Order::sum('amount');
+        $total_shops = Shop::count();
+        $new_shops = Shop::where([
+            ['status', 0],
+        ])->count();
+        return view('admin.dashboard', compact('total_orders', 'order_sum', 'total_shops', 'new_shops'));
     }
 
     /**

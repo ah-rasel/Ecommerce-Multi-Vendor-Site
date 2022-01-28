@@ -23,9 +23,7 @@
                     </a>
                 </x-table.cell>
                 <x-table.cell>
-                    <a href="#" class="text-blue-400 hover:underline">
-                        {{ $shop->user->name }}
-                    </a>
+                    <x-table.user_component :user="$shop->user" />
                 </x-table.cell>
                 <x-table.cell>
                     {{ $shop->products_count }}
@@ -36,13 +34,17 @@
                 <x-table.cell>
                     <span wire:click="ChangeStatus({{ $shop->id }},{{ $shop->status }})" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $shop->status_color }} cursor-pointer">
                         {{ $shop->shop_status }}
-                        @if ($shop->id == $changing)
-                        <x-icon.spinner class="ml-1"/>
-                        @endif
                     </span>
                 </x-table.cell>
                 <x-table.cell>
                     <div class="flex space-x-2 md:space-x-4">
+                        @if ($shop->status !=2)
+                        <button wire:click="Block({{ $shop->id }})" class="text-red-500 transition duration-200 hover:text-red-600 focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                            </svg>
+                        </button>
+                        @endif
                         <div class="">
                             <a target="blank" href="{{ route('shops.show',$shop) }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -14,9 +14,7 @@
         @foreach ($users as $user)
         <x-table.row>
             <x-table.cell>
-                <x-table.user_component :email="$user->email">
-                    {{ $user->name }}
-                </x-table.user_component>
+                <x-table.user_component :user="$user"/>
             </x-table.cell>
             <x-table.cell class="max-w-xs overflow-hidden">
                 @foreach ($user->roles as $role)

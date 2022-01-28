@@ -47,8 +47,7 @@
     <div class="w-full">
         <div class="flex flex-col w-full h-full p-7 rounded bg-white dark:bg-gray-800">
             <div class="w-full flex justify-between mb-auto pb-8">
-                <div class="w-full flex flex-col"><span class="text-base text-heading font-semibold mb-1">Total
-                        Order</span><span class="text-xs text-body font-semibold">(Last 30
+                <div class="w-full flex flex-col"><span class="text-base text-heading font-semibold mb-1">Total Orders ({{ $total_orders }})</span><span class="text-xs text-body font-semibold">(Last 30
                         Days)</span></div>
                 <div class="w-12 h-12 rounded-full bg-gray-200 flex flex-shrink-0 items-center justify-center ms-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 48 48">
@@ -63,48 +62,31 @@
                         </g>
                     </svg>
                 </div>
-            </div><span class="text-xl font-semibold text-heading mb-2">
-                $0.00
-            </span>
+            </div>
+            <div class="text-xs font-semibold mb-2 flex gap-x-2 items-center">
+                <div class="">
+                    <span class="text-xl font-semibold text-heading mb-2">
+                        {{ env('CURRENCY').$order_sum }}
+                    </span>
+                </div>
+                <a href="{{ route('admin.orders.index') }}" class="hover:underline text-slate-600 group uppercase flex items-center justify-center">
+                    View Orders
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 -translate-x-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-3 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
     <div class="w-full">
         <div class="flex flex-col w-full h-full p-7 rounded bg-white dark:bg-gray-800">
             <div class="w-full flex justify-between mb-auto pb-8">
-                <div class="w-full flex flex-col"><span class="text-base text-heading font-semibold mb-1">Todays
-                        Revenue</span><span class="text-xs text-body font-semibold">(Last 30
-                        Days)</span>
+                <div class="w-full flex flex-col">
+                    <span class="text-base text-heading font-semibold mb-1">Total Shops ({{ $total_shops }})</span>
+                    <span class="text-xs text-body font-semibold">(Last 30 Days)</span>
                 </div>
-                <div class="w-12 h-12 rounded-full bg-gray-200 flex flex-shrink-0 items-center justify-center ms-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 48 48">
-                        <g data-name="Group 2993" transform="translate(-608 -807)">
-                            <path data-name="Path 3646" d="M20,0h8A20,20,0,0,1,48,20v8A20,20,0,0,1,28,48H20A20,20,0,0,1,0,28V20A20,20,0,0,1,20,0Z" transform="translate(608 807)" fill="#ffe8b2"></path>
-                            <g transform="translate(620 819)">
-                                <g data-name="Group 2982" transform="translate(0)">
-                                    <g data-name="Group 2981">
-                                        <path data-name="Path 3639" d="M20.485,3.515A12,12,0,0,0,3.515,20.485,12,12,0,0,0,20.485,3.515ZM12,22.594A10.594,10.594,0,1,1,22.594,12,10.606,10.606,0,0,1,12,22.594Z" transform="translate(0 0)" fill="#ffb300"></path>
-                                    </g>
-                                </g>
-                                <g data-name="Group 2984" transform="translate(8.284 4.519)">
-                                    <g data-name="Group 2983">
-                                        <path data-name="Path 3640" d="M181.2,103.179H179.7a1.556,1.556,0,1,1,0-3.112h3.013a.7.7,0,1,0,0-1.406h-1.556V97.1a.7.7,0,0,0-1.406,0V98.66h-.05a2.962,2.962,0,1,0,0,5.925H181.2a1.556,1.556,0,0,1,0,3.113H178.19a.7.7,0,0,0,0,1.406h1.556v1.556a.7.7,0,0,0,1.406,0V109.1h.05a2.963,2.963,0,0,0,0-5.925Z" transform="translate(-176.734 -96.401)" fill="#ffb300"></path>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-            </div><span class="text-xl font-semibold text-heading mb-2">
-                $0.00
-            </span>
-        </div>
-    </div>
-    <div class="w-full">
-        <div class="flex flex-col w-full h-full p-7 rounded bg-white dark:bg-gray-800">
-            <div class="w-full flex justify-between mb-auto pb-8">
-                <div class="w-full flex flex-col"><span class="text-base text-heading font-semibold mb-1">Total
-                        Shops</span><span class="text-xs text-body font-semibold">(Last 30
-                        Days)</span></div>
                 <div class="w-12 h-12 rounded-full bg-gray-200 flex flex-shrink-0 items-center justify-center ms-3" style="background-color: rgb(147, 197, 253);">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.3 15.057" class="w-6" color="#1D4ED8">
                         <g fill="currentColor" stroke="currentColor" stroke-width=".3">
@@ -116,9 +98,42 @@
                     </svg>
                 </div>
             </div>
-            <span class="text-xl font-semibold text-heading mb-2">
-                $0.00
-            </span>
+            <div class="text-xs font-semibold mb-2 flex">
+                <a href="{{ route('admin.shops.index') }}" class="hover:underline text-slate-600 group uppercase flex items-center justify-center">View Shops
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 -translate-x-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-3 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="w-full">
+        <div class="flex flex-col w-full h-full p-7 rounded bg-white dark:bg-gray-800">
+            <div class="w-full flex justify-between mb-auto pb-8">
+                <div class="w-full flex flex-col"><span class="text-base text-heading font-semibold mb-1">New Shop Requests ({{ $new_shops }})</span><span class="text-xs text-body font-semibold">(Last 30 Days)</span>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-gray-200 flex flex-shrink-0 items-center justify-center ms-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.3 15.057" class="w-6" color="#1D4ED8">
+                        <g fill="currentColor" stroke="currentColor" stroke-width=".3">
+                            <path data-name="Path 22617" d="M2.258.92a.218.218 0 01.2-.128h13.365a.218.218 0 01.2.127l1.487 3.247a1.125 1.125 0 01-2.249-.066.328.328 0 00-.007-.065.321.321 0 00-.636.065 1.125 1.125 0 01-2.251 0 .321.321 0 00-.642 0 1.125 1.125 0 01-2.251 0 .321.321 0 10-.642 0 1.125 1.125 0 01-2.251 0 .321.321 0 10-.642 0 1.125 1.125 0 01-2.251 0 .321.321 0 10-.642 0 1.125 1.125 0 01-2.249.065L2.261.92zm6.738 13.345V7.694a.6.6 0 00-.6-.6H3.95a.6.6 0 00-.6.6v6.575H2.139V5.858a1.569 1.569 0 012.676.014 1.765 1.765 0 012.893 0 1.765 1.765 0 012.893 0 1.765 1.765 0 012.893 0 1.548 1.548 0 012.652-.017v8.414zm-5.009-.006V7.734H8.35v6.525zM1.492 5.816v8.77a.321.321 0 00.321.321h14.649a.321.321 0 00.321-.321V5.822a1.77 1.77 0 001.366-1.721.321.321 0 00-.029-.134L16.602.652a.862.862 0 00-.782-.5H2.456a.861.861 0 00-.784.506L.178 3.971a.321.321 0 00-.028.132 1.771 1.771 0 001.342 1.715z">
+                            </path>
+                            <path data-name="Path 22618" d="M15.008 11.895h-4.7V7.734h4.7v4.162zm0-4.8h-4.7a.642.642 0 00-.641.641v4.163a.642.642 0 00.641.641h4.7a.642.642 0 00.641-.641V7.736a.642.642 0 00-.641-.641z">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="text-xs font-semibold mb-2 flex">
+                <a href="{{ route('admin.new.shops') }}" class="hover:underline text-slate-600 group uppercase flex items-center justify-center">View requests
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 -translate-x-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-3 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
 </div>

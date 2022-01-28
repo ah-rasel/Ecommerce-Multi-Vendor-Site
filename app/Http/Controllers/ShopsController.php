@@ -15,7 +15,7 @@ class ShopsController extends Controller
      */
     public function index()
     {
-        $shops = Shop::where('status','1')->get();
+        $shops = Shop::where('status', '1')->get();
         return view('user.shops', compact('shops'));
     }
 
@@ -48,7 +48,13 @@ class ShopsController extends Controller
      */
     public function show($slug)
     {
-        $shop = Shop::with(['products'])->where('slug', $slug)->firstOrFail();
+        $shop = Shop::with(['products'])->where(
+            [
+                ['slug', $slug],
+                ['status','!=', 0],
+                ['status','!=', 2],
+            ]
+        )->firstOrFail();
         return view('vendor.single-shop', compact('shop'));
     }
 

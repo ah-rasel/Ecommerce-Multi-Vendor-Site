@@ -7,13 +7,17 @@ use Livewire\Component;
 
 class Shops extends Component
 {
-    public $changing = false;
-    public function ChangeStatus($id,$currentstatus)
+    public function Block($id)
     {
-        $this->changing = $id;
-        $status = ($currentstatus ==0) ? 1 : (($currentstatus ==1) ? 2: 0);
-        Shop::where('id',$id)->update([
-            'status'=>$status,
+        Shop::where('id', $id)->update([
+            'status' => 2,
+        ]);
+    }
+    public function ChangeStatus($id, $currentstatus)
+    {
+        $status = ($currentstatus == 0) ? 1 : 0;
+        Shop::where('id', $id)->update([
+            'status' => $status,
         ]);
     }
     public function render()
