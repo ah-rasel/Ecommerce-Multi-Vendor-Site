@@ -11,7 +11,7 @@
                                 </li>
                                 <li class="text-base mt-0.5">/</li>
                                 <li class="text-sm px-2.5 transition duration-200 ease-in first:ps-0 last:pr-0 hover:">
-                                    <a class="capitalize font-semibold " href="/products">Products</a>
+                                    <a class="capitalize font-semibold " href="{{ route('shop') }}">Store</a>
                                 </li>
                             </ol>
                         </div>
@@ -19,52 +19,31 @@
                     <div class="pt-1">
                         <div class="block border-b border-gray-300 pb-7 mb-7">
                             <div class="flex items-center justify-between mb-2.5">
-                                <h2 class="font-semibold text-heading text-xl md:text-2xl">Filters</h2><button class="flex-shrink text-xs mt-0.5 transition duration-150 ease-in focus:outline-none hover:text-heading" aria-label="Clear All">Clear All</button>
+                                <h2 class="font-semibold text-heading text-xl md:text-2xl">Filters</h2>
+                                <button wire:click.prevent="ClearFilters" class="flex-shrink text-xs mt-0.5 transition duration-150 ease-in focus:outline-none hover:text-heading" aria-label="Clear All">Clear All</button>
                             </div>
                             <div class="flex flex-wrap -m-1.5 pt-2">
+                                @if ($CategoriesInFilter)
+                                @foreach ($CategoriesInFilter as $category)
                                 <div class="group flex flex-shrink-0 m-1.5 items-center border border-gray-300
-                                bg-gray-100 rounded-lg text-xs px-3.5 py-2.5 capitalize  cursor-pointer transition duration-200 ease-in-out hover:border-heading">woman
-                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-sm text-body mx-2 flex-shrink-0 -mr-0.5 mt-0.5 transition duration-200 ease-in-out h-4 w-4" xmlns="http://www.w3.org/2000/svg">
+                                bg-gray-100 rounded-lg text-xs px-3.5 py-2.5 capitalize  cursor-pointer transition duration-200 ease-in-out hover:border-heading">{{ $category->name }}
+                                    <svg wire:click="removeCategory({{ $category->id }})" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-sm text-body mx-2 flex-shrink-0 -mr-0.5 mt-0.5 transition duration-200 ease-in-out h-4 w-4" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
                                     </svg>
                                 </div>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="block border-b border-gray-300 pb-7 mb-7">
                             <h3 class=" text-sm md:text-base font-semibold mb-7">Category</h3>
                             <div class="mt-2 flex flex-col space-y-4">
+                                @foreach ($categories as $category)
                                 <label class="group flex items-center  text-sm cursor-pointer">
-                                    <input type="checkbox" class="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none checked:bg-heading checked:hover:bg-heading checked:focus:bg-heading" name="woman" value="woman">
-                                    <span class="mx-4 -mt-0.5">Woman</span>
+                                    <input wire:model="SelectedCategories" type="checkbox" class="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none checked:bg-heading checked:hover:bg-heading checked:focus:bg-heading" name="woman" value="{{ $category->id }}">
+                                    <span class="mx-4 -mt-0.5">{{ $category->name }}</span>
                                 </label>
-                                <label class="group flex items-center  text-sm cursor-pointer">
-                                    <input type="checkbox" class="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none checked:bg-heading checked:hover:bg-heading checked:focus:bg-heading" name="man" value="man">
-                                    <span class="mx-4 -mt-0.5">Man</span>
-                                </label>
-                                <label class="group flex items-center  text-sm cursor-pointer">
-                                    <input type="checkbox" class="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none checked:bg-heading checked:hover:bg-heading checked:focus:bg-heading" name="watch" value="watch">
-                                    <span class="mx-4 -mt-0.5">Watch</span>
-                                </label>
-                                <label class="group flex items-center  text-sm cursor-pointer">
-                                    <input type="checkbox" class="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none checked:bg-heading checked:hover:bg-heading checked:focus:bg-heading" name="kids" value="kids">
-                                    <span class="mx-4 -mt-0.5">Kids</span>
-                                </label>
-                                <label class="group flex items-center  text-sm cursor-pointer">
-                                    <input type="checkbox" class="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none checked:bg-heading checked:hover:bg-heading checked:focus:bg-heading" name="sports" value="sports">
-                                    <span class="mx-4 -mt-0.5">Sports</span>
-                                </label>
-                                <label class="group flex items-center  text-sm cursor-pointer">
-                                    <input type="checkbox" class="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none checked:bg-heading checked:hover:bg-heading checked:focus:bg-heading" name="sunglass" value="sunglass">
-                                    <span class="mx-4 -mt-0.5">Sunglass</span>
-                                </label>
-                                <label class="group flex items-center  text-sm cursor-pointer">
-                                    <input type="checkbox" class="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none checked:bg-heading checked:hover:bg-heading checked:focus:bg-heading" name="bags" value="bags">
-                                    <span class="mx-4 -mt-0.5">Bags</span>
-                                </label>
-                                <label class="group flex items-center  text-sm cursor-pointer">
-                                    <input type="checkbox" class="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none checked:bg-heading checked:hover:bg-heading checked:focus:bg-heading" name="sneakers" value="sneakers">
-                                    <span class="mx-4 -mt-0.5">Sneakers</span>
-                                </label>
+                                @endforeach
                             </div>
                         </div>
                         <div class="block border-b border-gray-300 pb-7 mb-7">
@@ -191,7 +170,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full lg:-ms-9">
+            <div class="w-full lg:-ms-9 relative">
                 <div class="flex justify-between items-center mb-7">
                     <h1 class="text-2xl font-bold  hidden lg:inline-flex pb-1">Products</h1>
                     <button class="lg:hidden  text-sm px-4 py-2 font-semibold border border-gray-300 rounded-md flex items-center transition duration-200 ease-in-out focus:outline-none hover:bg-gray-200">
