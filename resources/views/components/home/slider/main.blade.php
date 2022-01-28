@@ -1,34 +1,20 @@
+@props([
+   'sliders',
+    ])
+
 <div class="swiper home-slider group">
     <div class="swiper-wrapper">
         <!-- Banner -->
-        @php
-            $items=[0,1];
-        @endphp
-        @foreach ($items as $item)
-        <section class="bg-top bg-no-repeat bg-cover swiper-slide" style="background-image: url('/images/slider/1.jpg');">
+        @foreach ($sliders as $slider)
+        <section class="bg-top bg-no-repeat bg-cover swiper-slide" style="background-image: url('{{ asset('images/').'/'.$slider['image'] }}');">
             <div class="h-[40vh] md:h-[69vh] flex justify-start items-center">
                 <div class="ml-5 md:ml-40 space-y-1.5 md:space-y-4 text-gray-800">
                     <h4 class="text-sm md:tracking-[5.2px] md:text-lg md:font-bold text-center">
-                        Welcome To Fashion</h4>
+                        {{ $slider['main'] }}</h4>
                     <h1 class="text-2xl font-extrabold uppercase md:text-6xl md:font-bold">
-                        men fashion</h1>
+                    {{ $slider['tag'] }}</h1>
                     <div class="flex items-center justify-center">
-                        <a href="#" class="font-normal px-2 pb-0.5 md:px-5 md:py-2 bg-blue-500 text-sm md:text-base md:font-bold text-white hover:bg-white hover:text-blue-500 border-2 border-blue-500 border-opacity-0 hover:border-opacity-100 transition-all duration-100">
-                            Shop now
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="bg-top bg-no-repeat bg-cover swiper-slide" style="background-image: url('/images/slider/2.jpg');">
-            <div class="h-[40vh] md:h-[69vh] flex justify-start items-center">
-                <div class="ml-5 md:ml-40 space-y-1.5 md:space-y-4 text-gray-800">
-                    <h4 class="text-sm md:tracking-[5.2px] md:text-lg md:font-bold text-center">
-                        Welcome To Fashion</h4>
-                    <h1 class="text-2xl font-extrabold uppercase md:text-6xl md:font-bold">
-                        women fashion</h1>
-                    <div class="flex items-center justify-center">
-                        <a href="#" class="font-normal px-2 pb-0.5 md:px-5 md:py-2 bg-blue-500 text-sm md:text-base md:font-bold text-white hover:bg-white hover:text-blue-500 border-2 border-blue-500 border-opacity-0 hover:border-opacity-100 transition-all duration-100">
+                        <a href="{{ route('shop') }}" class="font-normal px-2 pb-0.5 md:px-5 md:py-2 bg-blue-500 text-sm md:text-base md:font-bold text-white hover:bg-white hover:text-blue-500 border-2 border-blue-500 border-opacity-0 hover:border-opacity-100 transition-all duration-100">
                             Shop now
                         </a>
                     </div>

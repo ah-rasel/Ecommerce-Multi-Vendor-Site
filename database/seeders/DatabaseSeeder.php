@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             RolesAndPermisisonsCombinedSeeder::class,
             DeliverySeeder::class,
+            SettingSeeder::class,
         ]);
         \App\Models\Shop::factory(9)->create();
         \App\Models\Category::factory(10)->create();
