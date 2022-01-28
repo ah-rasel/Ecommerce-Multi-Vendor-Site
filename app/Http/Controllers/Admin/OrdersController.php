@@ -16,8 +16,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['products'])->orderBy('id', 'DESC')->get();
-        return view('admin.orders.orders', compact('orders'));
+        return view('admin.orders.orders');
     }
 
     /**

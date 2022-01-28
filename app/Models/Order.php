@@ -29,6 +29,15 @@ class Order extends Model
             '3' => 'Cancelled',
         ][$this->status] ?? "In Review";
     }
+    public function getStatusColorAttribute()
+    {
+        return [
+            0 => 'text-green-800 bg-green-100',
+            1 => 'text-green-800 bg-green-200',
+            2 => 'text-green-800 bg-green-400',
+            3 => 'bg-red-600 text-white',
+        ][$this->status];
+    }
     public function getOrderDateAttribute()
     {
         return $this->created_at?->format('M d Y \,\a\t g:i A');
