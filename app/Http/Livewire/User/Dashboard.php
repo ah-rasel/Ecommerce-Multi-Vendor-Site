@@ -14,12 +14,14 @@ class Dashboard extends Component
     public $showOrders = true;
     public $order = false;
     public $products = false;
-    // public function mount()
-    // {
-    //     if(Gate::allows('vendor_access')){
-    //         return redirect()->route('vendor.dashboard');
-    //     }
-    // }
+    public $message = false;
+    public function mount()
+    {
+        $shop = auth()->user()->shop;
+        if ($shop) {
+            $this->message = "Your Shop is under Review. Once it is approved by the admin, you will be redirected to your vendor dashboard";
+        }
+    }
     public function ShowOrder($id, Order $order)
     {
         $this->order = $order;
